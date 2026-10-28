@@ -2,19 +2,31 @@
 from pathlib import Path
 from html import escape as e
 import json
-ROOT = Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[1]
 for path in (ROOT/'content').glob('*.json'):
-    d=json.loads(path.read_text())
-    parts=['<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1120" viewBox="0 0 1440 1120" role="img" aria-labelledby="title desc">',f'<title id="title">Open Agent Systems — {e(d["architectureLabel"])}</title>',f'<desc id="desc">{e(d["architectureNote"])}</desc>','<style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#eff2ed}.accent{fill:#e1a18a}</style>','<rect width="1440" height="1120" fill="#141f24"/>','<text x="70" y="70" font-size="22" class="accent">OPEN AGENT SYSTEMS</text>',f'<text x="70" y="125" font-size="32">{e(d["architectureTitle"])}</text>']
-    for i,layer in enumerate(d['layers']):
-        x=70+(i%2)*660; y=170+(i//2)*190
-        parts += [f'<rect x="{x}" y="{y}" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>',f'<text x="{x+24}" y="{y+38}" font-size="14" class="accent">0{i+1}</text>',f'<text x="{x+24}" y="{y+77}" font-size="26">{e(layer[0])}</text>']
-        for j,label in enumerate(layer[1]):
-            parts.append(f'<text x="{x+24+j*204}" y="{y+125}" font-size="17">{e(label)}</text>')
-    parts += [f'<text x="70" y="970" font-size="22" class="accent">{e(d["architectureCommunity"])}</text>']
-    for i,label in enumerate(d['architectureCommunityItems']):
-        parts.append(f'<text x="{360+i*320}" y="970" font-size="20">{e(label)}</text>')
-    note='生态规划 · 拟建设的能力范围，不代表已全部交付。' if d['lang']=='zh-CN' else 'Ecosystem plan: intended capability areas, not a claim of completed delivery.'
-    parts += [f'<text x="70" y="1050" font-size="18">{e(note)}</text>','</svg>']
-    (ROOT/'docs/assets'/f'architecture.{d["lang"]}.svg').write_text('\n'.join(parts))
-print('[PASS] Exported bilingual capability maps')
+ d=json.loads(path.read_text());s=d['strategic'];parts=['<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1150" viewBox="0 0 1600 1150" role="img" aria-labelledby="title desc">',f'<title id="title">{e(d["architectureTitle"])}</title>',f'<desc id="desc">{e(d["architectureNote"])}</desc>','<style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#d9e4e6}.accent{fill:#e4b193}</style>','<rect width="1600" height="1150" fill="#101b21"/>']
+ def text(x,y,label,size=18,accent=False): parts.append(f'<text x="{x}" y="{y}" font-size="{size}" class="{"accent" if accent else ""}">{e(label)}</text>')
+ def rect(x,y,w,h,fill='#1c3039'):parts.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{fill}" stroke="#526b76"/>')
+ text(60,65,'OPEN AGENT SYSTEMS',21,True);text(60,120,d['architectureTitle'],34)
+ rect(60,165,1480,95,'#30454e');text(85,202,s['outcome'],17,True)
+ for j,label in enumerate(s['apps']):text(410+j*360,220,label,23)
+ for x,w,label in [(60,330,s['left']),(415,770,s['middle']),(1210,330,s['right'])]:
+  rect(x,305,w,485);text(x+20,342,label,16,True)
+ def node(i,x,y,w,h):
+  layer=d['layers'][i];rect(x,y,w,h,'#263e48');text(x+15,y+30,layer[0],18)
+  for j,label in enumerate(layer[1]):text(x+15,y+59+j*23,label,15)
+ node(3,78,365,294,183);node(4,78,574,294,190)
+ # Wide center nodes use horizontal capability labels.
+ for i,x,y in [(7,435,365),(1,435,500)]:
+  rect(x,y,730,115,'#304952');text(x+18,y+32,d['layers'][i][0],21)
+  for j,label in enumerate(d['layers'][i][1]):text(x+18+j*235,y+77,label,15)
+ node(0,435,635,350,140);node(2,805,635,360,140)
+ node(5,1228,365,294,183);node(6,1228,574,294,190)
+ rect(60,825,1480,90,'#243d46');text(85,860,s['base'],19,True)
+ for j,label in enumerate(s['baseItems']):text(410+j*280,880,label,17)
+ text(60,965,s['deployment'],17,True)
+ for j,label in enumerate(s['environments']):text(440+j*250,965,label,18)
+ text(60,1030,d['architectureCommunity'],17,True)
+ note='生态规划 · 拟建设的能力范围，不代表已全部交付。' if d['lang']=='zh-CN' else 'Ecosystem plan: intended capabilities, not a claim of completed delivery.'
+ text(60,1090,note,16);parts.append('</svg>');(ROOT/'docs/assets'/f'architecture.{d["lang"]}.svg').write_text('\n'.join(parts))
+print('[PASS] Exported strategic system architecture')

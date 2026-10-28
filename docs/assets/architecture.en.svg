@@ -1,61 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1120" viewBox="0 0 1440 1120" role="img" aria-labelledby="title desc">
-<title id="title">Open Agent Systems — OPEN SYSTEMS / CAPABILITY MAP</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1150" viewBox="0 0 1600 1150" role="img" aria-labelledby="title desc">
+<title id="title">The shared foundations of AI-native systems.</title>
 <desc id="desc">Ecosystem plan and conceptual interaction. Intended capabilities and relationships, not shipped products or live telemetry.</desc>
-<style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#eff2ed}.accent{fill:#e1a18a}</style>
-<rect width="1440" height="1120" fill="#141f24"/>
-<text x="70" y="70" font-size="22" class="accent">OPEN AGENT SYSTEMS</text>
-<text x="70" y="125" font-size="32">One task. A connected system.</text>
-<rect x="70" y="170" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
-<text x="94" y="208" font-size="14" class="accent">01</text>
-<text x="94" y="247" font-size="26">Models &amp; gateways</text>
-<text x="94" y="295" font-size="17">Model proxy</text>
-<text x="298" y="295" font-size="17">Routing &amp; fallback</text>
-<text x="502" y="295" font-size="17">Quotas &amp; metering</text>
-<rect x="730" y="170" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
-<text x="754" y="208" font-size="14" class="accent">02</text>
-<text x="754" y="247" font-size="26">Agent orchestration</text>
-<text x="754" y="295" font-size="17">Task orchestration</text>
-<text x="958" y="295" font-size="17">Agent collaboration</text>
-<text x="1162" y="295" font-size="17">Human oversight</text>
-<rect x="70" y="360" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
-<text x="94" y="398" font-size="14" class="accent">03</text>
-<text x="94" y="437" font-size="26">Runtimes &amp; sandboxes</text>
-<text x="94" y="485" font-size="17">Execution isolation</text>
-<text x="298" y="485" font-size="17">Scheduling &amp; recovery</text>
-<text x="502" y="485" font-size="17">Lifecycle governance</text>
-<rect x="730" y="360" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
-<text x="754" y="398" font-size="14" class="accent">04</text>
-<text x="754" y="437" font-size="26">Context, state &amp; knowledge</text>
-<text x="754" y="485" font-size="17">Context engineering</text>
-<text x="958" y="485" font-size="17">Checkpoints</text>
-<text x="1162" y="485" font-size="17">Memory &amp; knowledge</text>
-<rect x="70" y="550" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
-<text x="94" y="588" font-size="14" class="accent">05</text>
-<text x="94" y="627" font-size="26">AI assets &amp; supply chain</text>
-<text x="94" y="675" font-size="17">Registry &amp; discovery</text>
-<text x="298" y="675" font-size="17">Versioning &amp; delivery</text>
-<text x="502" y="675" font-size="17">Provenance &amp; dependencies</text>
-<rect x="730" y="550" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
-<text x="754" y="588" font-size="14" class="accent">06</text>
-<text x="754" y="627" font-size="26">Security &amp; governance</text>
-<text x="754" y="675" font-size="17">Identity &amp; access</text>
-<text x="958" y="675" font-size="17">Policy &amp; approval</text>
-<text x="1162" y="675" font-size="17">Budgets &amp; audit</text>
-<rect x="70" y="740" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
-<text x="94" y="778" font-size="14" class="accent">07</text>
-<text x="94" y="817" font-size="26">Evaluation &amp; improvement</text>
-<text x="94" y="865" font-size="17">Traces &amp; replay</text>
-<text x="298" y="865" font-size="17">Quality &amp; cost</text>
-<text x="502" y="865" font-size="17">Validation &amp; release</text>
-<rect x="730" y="740" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
-<text x="754" y="778" font-size="14" class="accent">08</text>
-<text x="754" y="817" font-size="26">Developer experience</text>
-<text x="754" y="865" font-size="17">SDKs &amp; CLIs</text>
-<text x="958" y="865" font-size="17">Debugging &amp; delivery</text>
-<text x="1162" y="865" font-size="17">Applied practice</text>
-<text x="70" y="970" font-size="22" class="accent">Shared foundations</text>
-<text x="360" y="970" font-size="20">Open interfaces</text>
-<text x="680" y="970" font-size="20">Compatibility checks</text>
-<text x="1000" y="970" font-size="20">Community contribution</text>
-<text x="70" y="1050" font-size="18">Ecosystem plan: intended capability areas, not a claim of completed delivery.</text>
+<style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#d9e4e6}.accent{fill:#e4b193}</style>
+<rect width="1600" height="1150" fill="#101b21"/>
+<text x="60" y="65" font-size="21" class="accent">OPEN AGENT SYSTEMS</text>
+<text x="60" y="120" font-size="34" class="">The shared foundations of AI-native systems.</text>
+<rect x="60" y="165" width="1480" height="95" fill="#30454e" stroke="#526b76"/>
+<text x="85" y="202" font-size="17" class="accent">APPLICATION VALUE</text>
+<text x="410" y="220" font-size="23" class="">Software delivery</text>
+<text x="770" y="220" font-size="23" class="">Intelligent operations</text>
+<text x="1130" y="220" font-size="23" class="">Business automation</text>
+<rect x="60" y="305" width="330" height="485" fill="#1c3039" stroke="#526b76"/>
+<text x="80" y="342" font-size="16" class="accent">KNOWLEDGE &amp; ASSETS</text>
+<rect x="415" y="305" width="770" height="485" fill="#1c3039" stroke="#526b76"/>
+<text x="435" y="342" font-size="16" class="accent">BUILD &amp; OPERATE</text>
+<rect x="1210" y="305" width="330" height="485" fill="#1c3039" stroke="#526b76"/>
+<text x="1230" y="342" font-size="16" class="accent">GOVERN &amp; EVOLVE</text>
+<rect x="78" y="365" width="294" height="183" fill="#263e48" stroke="#526b76"/>
+<text x="93" y="395" font-size="18" class="">Context, state &amp; knowledge</text>
+<text x="93" y="424" font-size="15" class="">Context engineering</text>
+<text x="93" y="447" font-size="15" class="">Checkpoints</text>
+<text x="93" y="470" font-size="15" class="">Memory &amp; knowledge</text>
+<rect x="78" y="574" width="294" height="190" fill="#263e48" stroke="#526b76"/>
+<text x="93" y="604" font-size="18" class="">AI assets &amp; supply chain</text>
+<text x="93" y="633" font-size="15" class="">Registry &amp; discovery</text>
+<text x="93" y="656" font-size="15" class="">Versioning &amp; delivery</text>
+<text x="93" y="679" font-size="15" class="">Provenance &amp; dependencies</text>
+<rect x="435" y="365" width="730" height="115" fill="#304952" stroke="#526b76"/>
+<text x="453" y="397" font-size="21" class="">Developer experience</text>
+<text x="453" y="442" font-size="15" class="">SDKs &amp; CLIs</text>
+<text x="688" y="442" font-size="15" class="">Debugging &amp; delivery</text>
+<text x="923" y="442" font-size="15" class="">Applied practice</text>
+<rect x="435" y="500" width="730" height="115" fill="#304952" stroke="#526b76"/>
+<text x="453" y="532" font-size="21" class="">Agent orchestration</text>
+<text x="453" y="577" font-size="15" class="">Task orchestration</text>
+<text x="688" y="577" font-size="15" class="">Agent collaboration</text>
+<text x="923" y="577" font-size="15" class="">Human oversight</text>
+<rect x="435" y="635" width="350" height="140" fill="#263e48" stroke="#526b76"/>
+<text x="450" y="665" font-size="18" class="">Models &amp; gateways</text>
+<text x="450" y="694" font-size="15" class="">Model proxy</text>
+<text x="450" y="717" font-size="15" class="">Routing &amp; fallback</text>
+<text x="450" y="740" font-size="15" class="">Quotas &amp; metering</text>
+<rect x="805" y="635" width="360" height="140" fill="#263e48" stroke="#526b76"/>
+<text x="820" y="665" font-size="18" class="">Runtimes &amp; sandboxes</text>
+<text x="820" y="694" font-size="15" class="">Execution isolation</text>
+<text x="820" y="717" font-size="15" class="">Scheduling &amp; recovery</text>
+<text x="820" y="740" font-size="15" class="">Lifecycle governance</text>
+<rect x="1228" y="365" width="294" height="183" fill="#263e48" stroke="#526b76"/>
+<text x="1243" y="395" font-size="18" class="">Security &amp; governance</text>
+<text x="1243" y="424" font-size="15" class="">Identity &amp; access</text>
+<text x="1243" y="447" font-size="15" class="">Policy &amp; approval</text>
+<text x="1243" y="470" font-size="15" class="">Budgets &amp; audit</text>
+<rect x="1228" y="574" width="294" height="190" fill="#263e48" stroke="#526b76"/>
+<text x="1243" y="604" font-size="18" class="">Evaluation &amp; improvement</text>
+<text x="1243" y="633" font-size="15" class="">Traces &amp; replay</text>
+<text x="1243" y="656" font-size="15" class="">Quality &amp; cost</text>
+<text x="1243" y="679" font-size="15" class="">Validation &amp; release</text>
+<rect x="60" y="825" width="1480" height="90" fill="#243d46" stroke="#526b76"/>
+<text x="85" y="860" font-size="19" class="accent">OPEN INTEROPERABILITY</text>
+<text x="410" y="880" font-size="17" class="">Open interfaces</text>
+<text x="690" y="880" font-size="17" class="">Capability contracts</text>
+<text x="970" y="880" font-size="17" class="">Compatibility</text>
+<text x="1250" y="880" font-size="17" class="">Community</text>
+<text x="60" y="965" font-size="17" class="accent">CROSS-ENVIRONMENT VISION</text>
+<text x="440" y="965" font-size="18" class="">Local</text>
+<text x="690" y="965" font-size="18" class="">Private cloud</text>
+<text x="940" y="965" font-size="18" class="">Public cloud</text>
+<text x="1190" y="965" font-size="18" class="">Edge</text>
+<text x="60" y="1030" font-size="17" class="accent">Shared foundations</text>
+<text x="60" y="1090" font-size="16" class="">Ecosystem plan: intended capabilities, not a claim of completed delivery.</text>
 </svg>
