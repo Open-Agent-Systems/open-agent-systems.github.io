@@ -54,3 +54,13 @@ for d in locales:
     assert len(eco['nodes']) == 6 and len(eco['modes']) == 3
     assert all(sorted(mode[3]) == list(range(6)) for mode in eco['modes'])
 print('[PASS] Ecosystem views each traverse all six valid capabilities')
+
+for d in locales:
+    assert len(d['capabilityInsights']) == len(d['layers'])
+    for i, info in enumerate(d['capabilityInsights']):
+        assert info[0] and info[1]
+        assert all(0 <= related < len(d['layers']) and related != i for related in info[2])
+    assert len(d['journeySteps']) == len(d['journeys'])
+    for journey, steps in zip(d['journeys'], d['journeySteps']):
+        assert all(step[0] in journey[1] and step[1] for step in steps)
+print('[PASS] Capability relationships and scenario steps reference valid domains')

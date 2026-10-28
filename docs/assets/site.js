@@ -1,18 +1,3 @@
-const layers = [...document.querySelectorAll('.architecture-layer')];
-const description = document.getElementById('layer-description');
-if (description && layers.length) {
-  document.documentElement.classList.add('has-layer-controls');
-  for (const layer of layers) {
-    const button = layer.querySelector('.layer-select');
-    button.addEventListener('click', () => {
-      for (const candidate of layers) {
-        candidate.querySelector('.layer-select').setAttribute('aria-pressed', String(candidate === layer));
-      }
-      description.textContent = layer.querySelector('.layer-copy').textContent;
-    });
-  }
-}
-
 for (const choice of document.querySelectorAll('.direction-choice')) {
   choice.addEventListener('click', () => {
     for (const item of document.querySelectorAll('.direction-choice')) item.setAttribute('aria-pressed', String(item === choice));
@@ -21,17 +6,70 @@ for (const choice of document.querySelectorAll('.direction-choice')) {
   });
 }
 
+const layers = [...document.querySelectorAll('.architecture-layer')];
 const journeys = [...document.querySelectorAll('.journey-choice')];
+const stepper = document.querySelector('.journey-stepper');
+const architectureMap = document.querySelector('.architecture-map');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+let selectedDomain = null;
+function inspectDomain(id, moveFocus = false) {
+  selectedDomain = id;
+  const selected = layers.find(layer => layer.dataset.domain === id);
+  const related = selected?.dataset.related.split(',') || [];
+  architectureMap.classList.toggle('is-exploring', Boolean(selected));
+  for (const layer of layers) {
+    const active = layer === selected;
+    layer.classList.toggle('is-open', active);
+    layer.classList.toggle('is-related', related.includes(layer.dataset.domain));
+    layer.querySelector('.layer-select').setAttribute('aria-expanded', String(active));
+    layer.querySelector('.node-insight').hidden = !active;
+  }
+  for (const button of stepper.querySelectorAll('button')) button.setAttribute('aria-pressed', String(button.dataset.target === id));
+  document.querySelectorAll('.insight-navigation').forEach(el=>el.remove());
+  if (selected) {
+    const steps=[...stepper.querySelectorAll('button')];
+    const index=steps.findIndex(button=>button.dataset.target===id);
+    if(index>=0){
+      const nav=document.createElement('div');nav.className='insight-navigation';
+      for(const offset of [-1,1]){
+        const target=steps[index+offset];if(!target)continue;
+        const button=document.createElement('button');button.type='button';
+        button.textContent=(offset<0?'← ':'')+target.querySelector('strong').textContent+(offset>0?' →':'');
+        button.addEventListener('click',()=>inspectDomain(target.dataset.target,true));nav.append(button);
+      }
+      selected.querySelector('.node-insight').insertBefore(nav,selected.querySelector('.insight-close'));
+    }
+  }
+  if (moveFocus && selected) {
+    const button = selected.querySelector('.layer-select');
+    button.focus({preventScroll:true});
+    button.scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'start'});
+  }
+}
+for (const layer of layers) {
+  layer.querySelector('.layer-select').addEventListener('click', () => inspectDomain(selectedDomain === layer.dataset.domain ? null : layer.dataset.domain));
+  layer.querySelector('.insight-close').addEventListener('click', () => {inspectDomain(null);layer.querySelector('.layer-select').focus({preventScroll:true});});
+  layer.addEventListener('keydown', event => {if(event.key==='Escape' && selectedDomain===layer.dataset.domain){event.preventDefault();inspectDomain(null);layer.querySelector('.layer-select').focus({preventScroll:true});}});
+}
+for (const button of document.querySelectorAll('.related-capability')) button.addEventListener('click', () => inspectDomain(button.dataset.target,true));
 for (const journey of journeys) {
   journey.addEventListener('click', () => {
+    inspectDomain(null);
     for (const item of journeys) item.setAttribute('aria-pressed', String(item === journey));
     const domains = journey.dataset.domains.split(',');
-    for (const domain of document.querySelectorAll('[data-domain]')) {
-      domain.classList.toggle('in-path', domains.includes(domain.dataset.domain));
-    }
+    for (const layer of layers) layer.classList.toggle('in-path', domains.includes(layer.dataset.domain));
     document.getElementById('journey-description').textContent = journey.dataset.description;
+    stepper.replaceChildren();
+    JSON.parse(journey.dataset.steps).forEach(([id,label],index)=>{
+      const button = document.createElement('button');
+      button.type='button';button.dataset.target=String(id);button.setAttribute('aria-pressed','false');button.setAttribute('aria-controls',`insight-${id}`);
+      const number=document.createElement('span');number.textContent=String(index+1).padStart(2,'0');
+      const title=document.createElement('strong');title.textContent=label;
+      button.append(number,title);button.addEventListener('click',()=>inspectDomain(String(id),true));stepper.append(button);
+    });
   });
 }
+document.querySelector('.explorer-reset')?.addEventListener('click',()=>{inspectDomain(null);});
 journeys[0]?.click();
 
 // Illustration only. No model calls or runtime telemetry.

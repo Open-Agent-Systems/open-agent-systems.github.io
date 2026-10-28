@@ -338,5 +338,152 @@
       "Edge"
     ],
     "relation": "Applications drive demand · Shared capabilities enable delivery · Evidence drives improvement"
-  }
+  },
+  "capabilityInsights": [
+    [
+      "Task type, model requirements and budget",
+      "Traceable model responses and usage",
+      [
+        1,
+        5,
+        6
+      ]
+    ],
+    [
+      "Goals, acceptance criteria and available capabilities",
+      "Plans, delegation results and execution state",
+      [
+        0,
+        2,
+        3
+      ]
+    ],
+    [
+      "Execution requests, environment templates and access scope",
+      "Results, workspace artifacts and recovery points",
+      [
+        1,
+        3,
+        5
+      ]
+    ],
+    [
+      "Task events, knowledge sources and access policies",
+      "Recoverable task facts and grounded context",
+      [
+        1,
+        2,
+        4
+      ]
+    ],
+    [
+      "Skills, tools, templates and validation evidence",
+      "Discoverable, versioned capabilities and dependencies",
+      [
+        7,
+        5,
+        6
+      ]
+    ],
+    [
+      "Caller identity, action risk and resource budgets",
+      "Admission decisions, authorization boundaries and audit evidence",
+      [
+        0,
+        2,
+        4
+      ]
+    ],
+    [
+      "Traces, outcomes, cost and feedback",
+      "Evaluation findings and validated candidate improvements",
+      [
+        1,
+        4,
+        7
+      ]
+    ],
+    [
+      "Use cases, shared capabilities and development configuration",
+      "Debuggable applications, integrations and deliverables",
+      [
+        1,
+        4,
+        6
+      ]
+    ]
+  ],
+  "explorerLabels": {
+    "input": "INPUT",
+    "output": "OUTPUT",
+    "related": "EXPLORE CONNECTIONS",
+    "close": "Close details",
+    "reset": "Reset exploration",
+    "hint": "Select a capability for inputs and outputs, or follow the task steps.",
+    "context": "GOVERNANCE & VALIDATION THROUGHOUT"
+  },
+  "journeySteps": [
+    [
+      [
+        0,
+        "Access models"
+      ],
+      [
+        1,
+        "Plan work"
+      ],
+      [
+        2,
+        "Execute"
+      ],
+      [
+        3,
+        "Persist state"
+      ],
+      [
+        6,
+        "Verify results"
+      ]
+    ],
+    [
+      [
+        7,
+        "Develop"
+      ],
+      [
+        6,
+        "Evaluate"
+      ],
+      [
+        5,
+        "Review access"
+      ],
+      [
+        4,
+        "Publish"
+      ]
+    ],
+    [
+      [
+        4,
+        "Discover"
+      ],
+      [
+        5,
+        "Authorize"
+      ],
+      [
+        1,
+        "Delegate"
+      ],
+      [
+        3,
+        "Exchange state"
+      ],
+      [
+        0,
+        "Call models"
+      ]
+    ]
+  ]
 }
