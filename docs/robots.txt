@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://open-agent-systems.github.io/sitemap.xml

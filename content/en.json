@@ -1,0 +1,27 @@
+{
+  "lang": "en", "path": "/", "name": "English", "title": "Open Agent Systems — Open foundations for AI",
+  "description": "An open-source community building composable foundations for the AI-native ecosystem. Build, connect, and operate intelligent systems together.",
+  "skip": "Skip to content", "nav": ["Purpose", "Focus", "Principles"], "github": "Find us on GitHub", "language": "Language",
+  "eyebrow": "OPEN SOURCE · SHARED FOUNDATIONS",
+  "headline": "Build what’s next.", "headlineAccent": "On open foundations.",
+  "intro": "We’re bringing people, tools, and infrastructure together to make AI systems easier to build, connect, and operate.",
+  "primary": "Join the community", "secondary": "Explore our purpose", "visualLabel": "OPEN AGENT SYSTEMS", "visualCaption": "Independent capabilities. A shared foundation.",
+  "purposeLabel": "01 / OUR PURPOSE", "purposeTitle": "Better together,<br>by design.",
+  "purposeText": "Progress in AI shouldn’t mean rebuilding the same foundations. We’re working toward an ecosystem where models, agents, tools, and runtimes can work together—with clear boundaries and room to grow.",
+  "purposeNote": "Open Agent Systems (OAS) is an open-source organization. We start with real engineering needs and build toward a connected AI-native ecosystem, one contribution at a time.",
+  "focusLabel": "02 / WHERE WE’RE HEADING", "focusTitle": "Across the AI<br>development lifecycle.", "focusIntro": "Four connected areas guide our work. They describe our direction, not a list of capabilities already delivered.",
+  "areas": [
+    ["AI-assisted engineering", "Make AI useful throughout coding, testing, delivery, and collaboration. Improve the everyday experience of building software.", "DEVELOP"],
+    ["Agents & applications", "Connect reusable skills, tools, and workflows so developers can compose intelligent applications around real needs.", "COMPOSE"],
+    ["Cloud-native foundations", "Build toward dependable execution, deployment, resource management, and observability for AI workloads.", "OPERATE"],
+    ["An interoperable ecosystem", "Help independent projects work together. Reduce integration friction and make useful capabilities easier to reuse.", "CONNECT"]
+  ],
+  "principlesLabel": "03 / HOW WE BUILD", "principlesTitle": "Open in spirit.<br>Practical in execution.",
+  "principles": [
+    ["Build in the open", "Share the work. Welcome different perspectives. Make room for meaningful contributions."],
+    ["Design for composition", "Keep boundaries clear and interfaces understandable, so independent capabilities work together."],
+    ["Put developers first", "Treat usability, documentation, and the day-to-day developer experience as part of the product."],
+    ["Stay grounded", "Start with real problems. Value maintainable implementations and verifiable results."]
+  ],
+  "joinLabel": "THE NEXT STEP IS SHARED", "joinTitle": "Bring your perspective.", "joinText": "A useful ecosystem starts with real needs. Share a use case, suggest a connection, or help shape what comes next.", "joinButton": "Start a conversation", "joinSecondary": "Visit the organization", "footer": "Open foundations. Connected capabilities.", "footerNote": "Built in the open."
+}
