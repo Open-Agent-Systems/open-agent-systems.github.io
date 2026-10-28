@@ -83,8 +83,8 @@
   "footer": "Open foundations for the AI-native era.",
   "source": "Website source",
   "community": "Community profile",
-  "architectureTitle": "Independent capabilities. Connected systems.",
-  "architectureIntro": "Follow the execution path, explore the knowledge and assets supporting it, and see how governance spans the system. Select a capability to read more.",
+  "architectureTitle": "One task. A connected system.",
+  "architectureIntro": "Explore how eight capability domains work together. Choose a task path to highlight its capabilities, or select any domain to inspect its role.",
   "architectureLabel": "OPEN SYSTEMS / CAPABILITY MAP",
   "architectureNote": "Ecosystem plan and conceptual interaction. Intended capabilities and relationships, not shipped products or live telemetry.",
   "architectureDownload": "Download architecture diagram (SVG)",
@@ -312,15 +312,5 @@
     "note": "Concept demo · select a node, hover to explore connections",
     "play": "Play motion",
     "pause": "Pause motion"
-  },
-  "architectureGroups": [
-    "The execution path",
-    "Knowledge, assets & experience",
-    "Governance throughout"
-  ],
-  "architectureGroupNotes": [
-    "From model access to task coordination and execution.",
-    "Preserve state, reuse capabilities and bring them into everyday work.",
-    "Bound autonomy and verify outcomes and improvements with evidence."
-  ]
+  }
 }
