@@ -6,16 +6,16 @@
   "description": "Open Agent Systems is an open-source organization working on AI development tools, agent infrastructure, and interoperability.",
   "skip": "Skip to content",
   "nav": [
-    "About",
+    "Vision",
     "Architecture",
     "Direction",
     "Participate"
   ],
   "language": "Language",
   "label": "An open-source organization",
-  "headline": "AI development tools<br>and infrastructure.",
-  "intro": "Open Agent Systems (OAS) brings together open-source work on AI-assisted development, agents, and the systems that run them.",
-  "introMore": "Our aim is practical: help developers spend less time rebuilding foundations and connecting incompatible tools, and more time making useful software.",
+  "headline": "Toward AI-native.<br>Built to connect.",
+  "intro": "Open Agent Systems (OAS) explores what comes after a single model call: intelligent systems that collaborate, compose, and keep running.",
+  "introMore": "Through open source, we aim to turn emerging capabilities into foundations developers can use, connect, and operate.",
   "github": "GitHub organization",
   "feedback": "Ideas & feedback",
   "aboutTitle": "What we’re working toward",
@@ -44,19 +44,19 @@
   "steps": [
     [
       "Useful tools",
-      "Start with a specific engineering problem and make it easier to solve."
+      "Turn emerging capabilities into usable tools. Validate their value in real development scenarios, with documentation, examples, and a considered user experience."
     ],
     [
       "Manageable systems",
-      "Make execution, deployment, and troubleshooting easier to understand and operate."
+      "Move from one-off experiments toward sustained operation. Make deployment, scheduling, state, and observability understandable and manageable."
     ],
     [
       "Interoperable capabilities",
-      "Connect models, agents, tools, and runtimes through clear interfaces."
+      "Compose models, agents, and tools through clear interfaces. Reduce repeated integration work while preserving the freedom to replace components."
     ],
     [
       "A shared ecosystem",
-      "Let independent projects and contributors reuse and improve common foundations."
+      "Help independent projects share foundations. Evolve the ecosystem through open collaboration, documentation, and feedback from practice."
     ]
   ],
   "feedbackLoop": "Real use and community feedback inform every stage.",
@@ -129,5 +129,33 @@
     ]
   ],
   "heroKicker": "OPEN AGENT SYSTEMS / OPEN SOURCE",
-  "heroSide": "Tools. Runtimes. Interfaces."
+  "heroSide": "Tools. Runtimes. Interfaces.",
+  "visionLabel": "OUR VISION",
+  "visionTitle": "Make AI capabilities an open, shared foundation.",
+  "visionText": "We want developers to choose their models, compose agents and tools, and run systems in environments they can control. Independent projects should share foundations, and contributors should help them evolve—making advances in AI useful to more people.",
+  "exploreLabel": "Explore the target ecosystem",
+  "exploreNote": "Concept exploration · Select a node to see its role",
+  "exploreItems": [
+    [
+      "Models",
+      "Connect different models so applications can choose and switch capabilities for the task."
+    ],
+    [
+      "Agents",
+      "Combine models, skills, and tools into execution units that can carry out tasks."
+    ],
+    [
+      "Tools",
+      "Bring external tools and data into intelligent systems through understandable interfaces."
+    ],
+    [
+      "Runtimes",
+      "Provide observable, manageable environments for intelligent execution."
+    ],
+    [
+      "Applications",
+      "Compose underlying capabilities into products developers and teams can actually use."
+    ]
+  ],
+  "directionHint": "Select a direction to explore the work"
 }

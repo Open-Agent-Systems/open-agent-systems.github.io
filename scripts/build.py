@@ -18,10 +18,15 @@ for d in items:
     for x in items:
         current = ' aria-current="page"' if x['lang'] == d['lang'] else ''
         languages += f'<a href="{x["path"]}" lang="{x["lang"]}" hreflang="{x["lang"]}"{current}>{esc(x["name"])}</a>'
-    nav = ''.join(f'<a href="#{anchor}">{esc(label)}</a>' for anchor,label in zip(['about','architecture','direction','participate'],d['nav']))
+    nav = ''.join(f'<a href="#{anchor}">{esc(label)}</a>' for anchor,label in zip(['vision','architecture','direction','participate'],d['nav']))
     areas = ''.join(f'<div><dt>{esc(a[0])}</dt><dd>{esc(a[1])}</dd></div>' for a in d['areas'])
     principles = ''.join(f'<li><strong>{esc(a[0])}</strong><span>{esc(a[1])}</span></li>' for a in d['principles'])
-    steps = ''.join(f'<li><span class="roadmap-point" aria-hidden="true"></span><h3>{esc(a[0])}</h3><p>{esc(a[1])}</p></li>' for a in d['steps'])
+    steps = ''.join(f'<button type="button" class="direction-choice" aria-pressed="{str(i==0).lower()}" aria-controls="direction-description" data-description="{esc(a[1])}"><span>0{i+1}</span><strong>{esc(a[0])}</strong><span aria-hidden="true">↗</span></button>' for i,a in enumerate(d['steps']))
+    positions = [(13,33),(87,33),(24,83),(76,83),(50,10)]
+    nodes = ''.join(f'<button class="signal-node" type="button" style="--x:{x}%;--y:{y}%" data-node="{i}" aria-pressed="{str(i==1).lower()}" aria-controls="ecosystem-description" data-description="{esc(d["exploreItems"][i][1])}"><span class="node-indicator" aria-hidden="true"></span>{esc(d["exploreItems"][i][0])}</button>' for i,(x,y) in enumerate(positions))
+    paths = ''.join(f'<path data-edge="{i}" class="signal-edge{ " active" if i==1 else ""}" d="M340 220 L{x*6.8} {y*4.4}"/>' for i,(x,y) in enumerate(positions))
+    ecosystem = f'<div class="ecosystem"><div class="ecosystem-heading"><span>{d["exploreLabel"]}</span><span class="diagram-code" aria-hidden="true">OAS / 01</span></div><div class="signal-map"><svg viewBox="0 0 680 440" preserveAspectRatio="none" aria-hidden="true"><circle class="orbit" cx="340" cy="220" r="155"/><circle class="orbit inner" cx="340" cy="220" r="90"/>{paths}</svg><div class="signal-core" aria-hidden="true"><span>OAS</span><small>OPEN SYSTEMS</small></div>{nodes}</div><p class="ecosystem-hint">{d["exploreNote"]}</p><p id="ecosystem-description" aria-live="polite">{esc(d["exploreItems"][1][1])}</p></div>'
+
     layers = ''
     for i, layer in enumerate(d['layers']):
         chips = ''.join(f'<span>{esc(label)}</span>' for label in layer[1])
@@ -54,13 +59,13 @@ for d in items:
 </header>
 <main id="main" class="wrap">
 <section class="intro">
-<div class="intro-heading"><p class="label">{d['heroKicker']}</p><h1>{d['headline']}</h1><p class="hero-side">{d['heroSide']}</p></div>
-<div class="intro-text"><p>{d['intro']}</p><p>{d['introMore']}</p><div class="links"><a href="{ORG}">{d['github']} <span aria-hidden="true">↗</span></a><a href="{ISSUES}">{d['feedback']} <span aria-hidden="true">↗</span></a></div></div>
+<div class="intro-heading"><p class="label">{d['heroKicker']}</p><h1>{d['headline']}</h1><div class="intro-text"><p>{d['intro']}</p><p>{d['introMore']}</p><div class="links"><a href="{ORG}">{d['github']} <span aria-hidden="true">↗</span></a><a href="#vision">{d['visionLabel']} <span aria-hidden="true">↓</span></a></div></div></div>{ecosystem}
 </section>
+<section id="vision" class="vision"><p class="label">{d['visionLabel']}</p><h2>{d['visionTitle']}</h2><p>{d['visionText']}</p></section>
 {architecture}
 <section id="about" class="section"><h2>{d['aboutTitle']}</h2><div class="section-body"><p>{d['aboutText']}</p><dl class="areas">{areas}</dl></div></section>
 <section id="direction" class="direction"><div class="section"><h2>{d['directionTitle']}</h2><div class="section-body"><p>{d['directionIntro']}</p></div></div>
-<figure class="roadmap" aria-label="{esc(d['diagramTitle'])}"><ol>{steps}</ol><div class="feedback-path"><span>{d['feedbackLoop']}</span></div><figcaption>{d['directionNote']}</figcaption></figure>
+<div class="direction-explorer"><div class="direction-choices" aria-label="{esc(d['diagramTitle'])}">{steps}</div><div class="direction-panel"><p class="label">{d['directionHint']}</p><h3 id="direction-title">{esc(d['steps'][0][0])}</h3><p id="direction-description" aria-live="polite">{esc(d['steps'][0][1])}</p><p class="direction-feedback">{d['feedbackLoop']}</p></div></div><p class="direction-disclaimer">{d['directionNote']}</p><noscript><ol>{"".join("<li><strong>"+esc(a[0])+"</strong><p>"+esc(a[1])+"</p></li>" for a in d['steps'])}</ol></noscript>
 </section>
 <section class="section"><h2>{d['principlesTitle']}</h2><div class="section-body"><ul class="principles">{principles}</ul></div></section>
 <section id="participate" class="section"><h2>{d['joinTitle']}</h2><div class="section-body"><p>{d['joinText']}</p><p class="muted">{d['joinNote']}</p><a class="issue-link" href="{ISSUES}">{d['joinButton']} <span aria-hidden="true">↗</span></a></div></section>
