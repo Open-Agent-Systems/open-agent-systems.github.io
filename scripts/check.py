@@ -2,6 +2,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 import json
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / 'docs'
@@ -34,3 +35,13 @@ assert all(set(d)==set(locales[0]) for d in locales)
 assert all(len(d['areas'])==4 and len(d['principles'])==3 and len(d['steps'])==4 for d in locales)
 assert not any('OMA' in f.read_text() for f in DOCS.rglob('*.html'))
 print('[PASS] Local links, anchors, languages, page headings, image alt, and content scope')
+
+for d in locales:
+    assert len(d['layers']) == 3
+    svg = DOCS / 'assets' / ('architecture.' + d['lang'] + '.svg')
+    text = ''.join(ET.parse(svg).getroot().itertext())
+    for layer in d['layers']:
+        assert layer[0] in text
+        assert all(label in text for label in layer[1])
+    assert d['architectureCommunity'] in text
+print('[PASS] SVG architecture exports contain every localized layer and capability')

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1040" viewBox="0 0 1440 1040" role="img" aria-labelledby="title desc">
+<title id="title">Open Agent Systems — 生态目标架构</title>
+<desc id="desc">这是组织希望逐步完善的生态能力视图，不是某个产品的部署架构。不同项目可以在不同层次贡献能力，通过清晰接口协作。 规划视图 · 以下是拟建设的能力范围，不代表已经全部交付。</desc>
+<style>text{font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;fill:#f4f1ea}.muted{fill:#aab4b5}.accent{fill:#e1a18a}</style>
+<rect width="1440" height="1040" fill="#141f24"/>
+<text x="80" y="85" font-size="24">OPEN AGENT SYSTEMS</text>
+<text x="80" y="140" font-size="36" font-weight="600">生态目标架构</text>
+<rect x="80" y="190" width="1280" height="148" rx="4" fill="#1c2b31" stroke="#46565b"/>
+<text x="110" y="233" font-size="14" class="accent">L3</text>
+<text x="160" y="235" font-size="25" font-weight="600">应用与开发体验</text>
+<rect x="110.0" y="262" width="387.3333333333333" height="49" fill="#23373f"/>
+<text x="128.0" y="293" font-size="20">AI 辅助研发</text>
+<rect x="513.3333333333333" y="262" width="387.3333333333333" height="49" fill="#23373f"/>
+<text x="531.3333333333333" y="293" font-size="20">智能体应用</text>
+<rect x="916.6666666666666" y="262" width="387.3333333333333" height="49" fill="#23373f"/>
+<text x="934.6666666666666" y="293" font-size="20">团队协作流程</text>
+<path d="M720 377V349m-6 6 6-6 6 6" fill="none" stroke="#e1a18a" stroke-width="2"/>
+<rect x="80" y="390" width="1280" height="148" rx="4" fill="#1c2b31" stroke="#46565b"/>
+<text x="110" y="433" font-size="14" class="accent">L2</text>
+<text x="160" y="435" font-size="25" font-weight="600">共享 AI 能力</text>
+<rect x="110.0" y="462" width="286.5" height="49" fill="#23373f"/>
+<text x="128.0" y="493" font-size="20">智能体与技能</text>
+<rect x="412.5" y="462" width="286.5" height="49" fill="#23373f"/>
+<text x="430.5" y="493" font-size="20">工作流编排</text>
+<rect x="715.0" y="462" width="286.5" height="49" fill="#23373f"/>
+<text x="733.0" y="493" font-size="20">模型与工具接入</text>
+<rect x="1017.5" y="462" width="286.5" height="49" fill="#23373f"/>
+<text x="1035.5" y="493" font-size="20">上下文管理</text>
+<path d="M720 577V549m-6 6 6-6 6 6" fill="none" stroke="#e1a18a" stroke-width="2"/>
+<rect x="80" y="590" width="1280" height="148" rx="4" fill="#1c2b31" stroke="#46565b"/>
+<text x="110" y="633" font-size="14" class="accent">L1</text>
+<text x="160" y="635" font-size="25" font-weight="600">云原生基础设施</text>
+<rect x="110.0" y="662" width="286.5" height="49" fill="#23373f"/>
+<text x="128.0" y="693" font-size="20">运行时与沙箱</text>
+<rect x="412.5" y="662" width="286.5" height="49" fill="#23373f"/>
+<text x="430.5" y="693" font-size="20">部署与调度</text>
+<rect x="715.0" y="662" width="286.5" height="49" fill="#23373f"/>
+<text x="733.0" y="693" font-size="20">资源管理</text>
+<rect x="1017.5" y="662" width="286.5" height="49" fill="#23373f"/>
+<text x="1035.5" y="693" font-size="20">可观测性</text>
+<path d="M100 770H1340" stroke="#738084" stroke-dasharray="5 7"/>
+<text x="110" y="820" font-size="23" class="accent">开源协作</text>
+<text x="370" y="820" font-size="20">贡献者与独立项目</text>
+<text x="700" y="820" font-size="20">接口约定</text>
+<text x="1030" y="820" font-size="20">文档与验证</text>
+<text x="80" y="920" font-size="18" class="muted">规划视图 · 以下是拟建设的能力范围，不代表已经全部交付。</text>
+<text x="80" y="952" font-size="18" class="muted">组织的生态能力视图，不是单一产品的部署架构。</text>
+</svg>

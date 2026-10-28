@@ -1,33 +1,133 @@
 {
-  "lang": "en", "path": "/", "name": "English", "title": "Open Agent Systems — AI development tools and infrastructure",
+  "lang": "en",
+  "path": "/",
+  "name": "English",
+  "title": "Open Agent Systems — AI development tools and infrastructure",
   "description": "Open Agent Systems is an open-source organization working on AI development tools, agent infrastructure, and interoperability.",
-  "skip": "Skip to content", "nav": ["About", "Direction", "Participate"], "language": "Language",
-  "label": "An open-source organization", "headline": "AI development tools<br>and infrastructure.",
+  "skip": "Skip to content",
+  "nav": [
+    "About",
+    "Architecture",
+    "Direction",
+    "Participate"
+  ],
+  "language": "Language",
+  "label": "An open-source organization",
+  "headline": "AI development tools<br>and infrastructure.",
   "intro": "Open Agent Systems (OAS) brings together open-source work on AI-assisted development, agents, and the systems that run them.",
   "introMore": "Our aim is practical: help developers spend less time rebuilding foundations and connecting incompatible tools, and more time making useful software.",
-  "github": "GitHub organization", "feedback": "Ideas & feedback",
-  "aboutTitle": "What we’re working toward", "aboutText": "AI development reaches beyond the model. Tools need to work together, execution needs to be manageable, and developers need to understand what their systems are doing. These are the problems we want to work on.",
+  "github": "GitHub organization",
+  "feedback": "Ideas & feedback",
+  "aboutTitle": "What we’re working toward",
+  "aboutText": "AI development reaches beyond the model. Tools need to work together, execution needs to be manageable, and developers need to understand what their systems are doing. These are the problems we want to work on.",
   "areas": [
-    ["Development", "Bring AI into coding, testing, delivery, and collaboration, with attention to the everyday developer experience."],
-    ["Agents", "Make skills, tools, and workflows reusable, so applications can be assembled around real needs."],
-    ["Operations", "Improve execution environments, deployment, resource management, and observability for AI workloads."],
-    ["Integration", "Help independent tools and projects work together without repeated, one-off integration work."]
+    [
+      "Development",
+      "Bring AI into coding, testing, delivery, and collaboration, with attention to the everyday developer experience."
+    ],
+    [
+      "Agents",
+      "Make skills, tools, and workflows reusable, so applications can be assembled around real needs."
+    ],
+    [
+      "Operations",
+      "Improve execution environments, deployment, resource management, and observability for AI workloads."
+    ],
+    [
+      "Integration",
+      "Help independent tools and projects work together without repeated, one-off integration work."
+    ]
   ],
-  "directionTitle": "Where we want to go", "directionIntro": "We expect the work to move from individual tools toward connected systems. Each step should build on working software and lessons from its users.",
+  "directionTitle": "Where we want to go",
+  "directionIntro": "We expect the work to move from individual tools toward connected systems. Each step should build on working software and lessons from its users.",
   "diagramTitle": "Long-term direction: useful tools, manageable systems, interoperable capabilities, and a shared ecosystem",
   "steps": [
-    ["Useful tools", "Start with a specific engineering problem and make it easier to solve."],
-    ["Manageable systems", "Make execution, deployment, and troubleshooting easier to understand and operate."],
-    ["Interoperable capabilities", "Connect models, agents, tools, and runtimes through clear interfaces."],
-    ["A shared ecosystem", "Let independent projects and contributors reuse and improve common foundations."]
+    [
+      "Useful tools",
+      "Start with a specific engineering problem and make it easier to solve."
+    ],
+    [
+      "Manageable systems",
+      "Make execution, deployment, and troubleshooting easier to understand and operate."
+    ],
+    [
+      "Interoperable capabilities",
+      "Connect models, agents, tools, and runtimes through clear interfaces."
+    ],
+    [
+      "A shared ecosystem",
+      "Let independent projects and contributors reuse and improve common foundations."
+    ]
   ],
   "feedbackLoop": "Real use and community feedback inform every stage.",
   "directionNote": "This diagram describes our intended direction, not a release schedule or a statement of completed capabilities. Work in these areas may overlap; priorities will follow actual needs and available contributions.",
-  "principlesTitle": "How we approach the work", "principles": [
-    ["Keep the boundaries clear", "Prefer small, composable capabilities with understandable interfaces."],
-    ["Make the work usable", "Documentation, examples, and maintainability matter alongside implementation."],
-    ["Show what works", "Be clear about what is available, what has been verified, and what is still being explored."]
+  "principlesTitle": "How we approach the work",
+  "principles": [
+    [
+      "Keep the boundaries clear",
+      "Prefer small, composable capabilities with understandable interfaces."
+    ],
+    [
+      "Make the work usable",
+      "Documentation, examples, and maintainability matter alongside implementation."
+    ],
+    [
+      "Show what works",
+      "Be clear about what is available, what has been verified, and what is still being explored."
+    ]
   ],
-  "joinTitle": "Participate", "joinText": "Have a use case, an integration problem, or an idea for the ecosystem? Tell us what you’re trying to do, what is getting in the way, and what you’ve already tried.", "joinNote": "Organization-level suggestions are welcome in the community repository’s Issues. Contributions to individual projects will be handled in their own repositories when they are published.",
-  "joinButton": "Open a community issue", "footer": "Open-source tools and infrastructure for AI development.", "source": "Website source", "community": "Community profile"
+  "joinTitle": "Participate",
+  "joinText": "Have a use case, an integration problem, or an idea for the ecosystem? Tell us what you’re trying to do, what is getting in the way, and what you’ve already tried.",
+  "joinNote": "Organization-level suggestions are welcome in the community repository’s Issues. Contributions to individual projects will be handled in their own repositories when they are published.",
+  "joinButton": "Open a community issue",
+  "footer": "Open-source tools and infrastructure for AI development.",
+  "source": "Website source",
+  "community": "Community profile",
+  "architectureTitle": "An ecosystem, built to connect.",
+  "architectureIntro": "A target capability map for the organization—not the deployment architecture of a single product. Independent projects can contribute at different layers.",
+  "architectureLabel": "ECOSYSTEM ARCHITECTURE",
+  "architectureNote": "Planning view · These capabilities are areas to develop, not a claim of completed delivery.",
+  "architectureDownload": "Download architecture diagram (SVG)",
+  "architectureHint": "Select a layer to explore its role.",
+  "architectureSupport": "Execution & operational support ↑",
+  "architectureCompose": "Reusable capabilities ↑",
+  "architectureCommunity": "Open collaboration",
+  "architectureCommunityItems": [
+    "Contributors & independent projects",
+    "Interface agreements",
+    "Documentation & verification"
+  ],
+  "layers": [
+    [
+      "Applications & developer experience",
+      [
+        "AI-assisted development",
+        "Agent applications",
+        "Team workflows"
+      ],
+      "The user-facing layer: tools and applications that solve specific development and collaboration problems."
+    ],
+    [
+      "Shared AI capabilities",
+      [
+        "Agents & skills",
+        "Workflow orchestration",
+        "Model & tool integration",
+        "Context management"
+      ],
+      "Reusable capabilities with clear interfaces. Projects should be able to compose what they need without adopting the entire ecosystem."
+    ],
+    [
+      "Cloud-native foundations",
+      [
+        "Runtimes & sandboxes",
+        "Deployment & scheduling",
+        "Resource management",
+        "Observability"
+      ],
+      "The execution layer: environments and operational tools that make AI workloads easier to deploy, inspect, and manage."
+    ]
+  ],
+  "heroKicker": "OPEN AGENT SYSTEMS / OPEN SOURCE",
+  "heroSide": "Tools. Runtimes. Interfaces."
 }
