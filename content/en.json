@@ -236,5 +236,63 @@
       ],
       "Discover capabilities → verify identity and access → delegate tasks → exchange state and results across explicit boundaries."
     ]
-  ]
+  ],
+  "taskLoop": {
+    "title": "From intent to outcome",
+    "note": "Concept demo · select a step to explore",
+    "play": "Play demo",
+    "pause": "Pause demo",
+    "center": "TASK LOOP",
+    "boundary": "THROUGHOUT",
+    "guards": [
+      "Access",
+      "Budget",
+      "State",
+      "Evaluation"
+    ],
+    "resources": [
+      "Models",
+      "Knowledge",
+      "Tools",
+      "Sandbox"
+    ],
+    "steps": [
+      [
+        "Understand",
+        "Identify intent, constraints and acceptance criteria with the relevant models and knowledge.",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "Plan",
+        "Break down work, arrange dependencies and identify tools, budgets and human checkpoints.",
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      [
+        "Execute",
+        "Use tools and sandboxes within granted access, preserving execution state and outputs.",
+        [
+          0,
+          2,
+          3
+        ]
+      ],
+      [
+        "Verify",
+        "Check outcomes against acceptance criteria. Feed unmet requirements into the next iteration.",
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ]
+    ]
+  }
 }

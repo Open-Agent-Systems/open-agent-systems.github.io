@@ -13,15 +13,6 @@ if (description && layers.length) {
   }
 }
 
-const nodes = [...document.querySelectorAll('.signal-node')];
-const ecosystemDescription = document.getElementById('ecosystem-description');
-for (const node of nodes) {
-  node.addEventListener('click', () => {
-    for (const item of nodes) item.setAttribute('aria-pressed', String(item === node));
-    for (const edge of document.querySelectorAll('.signal-edge')) edge.classList.toggle('active', edge.dataset.edge === node.dataset.node);
-    ecosystemDescription.textContent = node.dataset.description;
-  });
-}
 for (const choice of document.querySelectorAll('.direction-choice')) {
   choice.addEventListener('click', () => {
     for (const item of document.querySelectorAll('.direction-choice')) item.setAttribute('aria-pressed', String(item === choice));
@@ -42,3 +33,39 @@ for (const journey of journeys) {
   });
 }
 journeys[0]?.click();
+
+// Conceptual playback; manual exploration pauses it. No live task execution.
+const loopSteps = [...document.querySelectorAll('.loop-step')];
+const loopToggle = document.querySelector('.loop-toggle');
+if (loopSteps.length && loopToggle) {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const panel = document.querySelector('.task-ecosystem');
+  const copy = document.getElementById('loop-description');
+  let current = 0;
+  let playing = !reduced.matches;
+  let visible = true;
+  let timer;
+  function render() {
+    loopSteps.forEach((step, i) => step.setAttribute('aria-pressed', String(i === current)));
+    const resources = loopSteps[current].dataset.resources.split(',');
+    document.querySelectorAll('[data-resource]').forEach(el => el.classList.toggle('engaged', resources.includes(el.dataset.resource)));
+    document.querySelectorAll('[data-wire]').forEach(el => el.classList.toggle('engaged', resources.includes(el.dataset.wire)));
+    panel.querySelector('.loop-counter').textContent = `0${current + 1} / 04`;
+    copy.textContent = loopSteps[current].dataset.copy;
+    copy.setAttribute('aria-live', playing ? 'off' : 'polite');
+    loopToggle.textContent = playing ? loopToggle.dataset.pause : loopToggle.dataset.play;
+    panel.classList.toggle('is-playing', playing && visible && !document.hidden);
+  }
+  function schedule() {
+    clearInterval(timer);
+    render();
+    if (playing && visible && !document.hidden) timer = setInterval(() => { current = (current + 1) % loopSteps.length; render(); }, 5000);
+  }
+  loopSteps.forEach((step, i) => step.addEventListener('click', () => { current = i; playing = false; schedule(); }));
+  loopToggle.hidden = false;
+  loopToggle.addEventListener('click', () => { playing = !playing; schedule(); });
+  document.addEventListener('visibilitychange', schedule);
+  reduced.addEventListener('change', () => { if (reduced.matches) playing = false; schedule(); });
+  new IntersectionObserver(entries => { visible = entries[0].isIntersecting; schedule(); }, {threshold: 0.15}).observe(panel);
+  schedule();
+}
