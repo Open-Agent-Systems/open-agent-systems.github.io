@@ -83,8 +83,8 @@
   "footer": "共建 AI 原生时代的开放系统基础。",
   "source": "网站源码",
   "community": "社区介绍",
-  "architectureTitle": "一项任务，连接整个系统。",
-  "architectureIntro": "探索八个能力域如何协作。选择一条任务链路查看关联能力，或点击任一能力了解它的职责。",
+  "architectureTitle": "从独立能力，到可协作的系统。",
+  "architectureIntro": "沿着执行主线探索系统，查看知识与资产如何支撑协作，以及治理如何贯穿全程。点击能力名称展开说明。",
   "architectureLabel": "开放系统能力地图 / CAPABILITY MAP",
   "architectureNote": "生态规划与概念交互 · 展示拟建设的能力及协作关系，不代表已交付产品或真实运行数据。",
   "architectureDownload": "下载架构图（SVG）",
@@ -312,5 +312,15 @@
     "note": "概念演示 · 点击节点查看能力，悬停探索关联",
     "play": "播放动态",
     "pause": "暂停动态"
-  }
+  },
+  "architectureGroups": [
+    "执行主线",
+    "知识、资产与开发体验",
+    "贯穿全程的治理"
+  ],
+  "architectureGroupNotes": [
+    "从模型访问到任务组织，再到真实执行。",
+    "让状态延续、能力复用，并进入开发者的工作。",
+    "约束自主权，用证据验证结果与改进。"
+  ]
 }

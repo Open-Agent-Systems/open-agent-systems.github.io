@@ -2,9 +2,11 @@ from pathlib import Path
 from html import escape as esc
 import json
 import runpy
+import hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs'
+ASSET_VERSIONS = {name: hashlib.sha256((OUT / 'assets' / name).read_bytes()).hexdigest()[:12] for name in ['site.css', 'site.js']}
 BASE = 'https://open-agent-systems.github.io'
 ORG = 'https://github.com/Open-Agent-Systems'
 ISSUES = ORG + '/.github/issues'
@@ -31,12 +33,16 @@ for d in items:
     ecosystem = f'''<div class="ecosystem eco-panel" data-eco="{eco_data}"><div class="ecosystem-heading"><span>{esc(eco['title'])}</span><span class="diagram-code">OAS / OPEN SYSTEMS</span></div><div class="eco-modes" aria-label="{esc(eco['title'])}">{mode_buttons}</div><p class="eco-apps">{esc(eco['apps'])}</p><div id="eco-stage" class="eco-stage"><svg class="eco-wires" viewBox="0 0 600 400" preserveAspectRatio="none" aria-hidden="true"><ellipse class="eco-ring" cx="300" cy="200" rx="235" ry="171"/><ellipse class="eco-inner" cx="300" cy="200" rx="107" ry="83"/><g class="eco-links"></g></svg><div class="eco-core"><strong>OAS</strong><span>{esc(eco['modes'][0][1])}</span><small class="eco-progress">01 / 06</small></div>{eco_nodes}</div><div class="eco-governance"><strong>{esc(eco['governance'])}</strong><span>{esc(eco['guards'])}</span></div><p id="eco-summary">{esc(eco['modes'][0][2])}</p><div class="eco-toolbar"><span>{esc(eco['note'])}</span><button class="eco-toggle" type="button" hidden>{esc(eco['play'])}</button></div><p id="eco-detail">{esc(eco['nodes'][0][1])}</p><noscript>{fallback}</noscript></div>'''
 
     layers = ''
-    for i, layer in enumerate(d['layers']):
-        chips = ''.join(f'<span>{esc(label)}</span>' for label in layer[1])
-        layers += f'<div class="architecture-layer" data-domain="{i}"><button type="button" class="layer-select" aria-pressed="{str(i == 0).lower()}" data-layer="{i}" aria-controls="layer-description"><span class="layer-code">0{i+1}</span><strong>{esc(layer[0])}</strong><span class="layer-plus" aria-hidden="true">↗</span></button><div class="layer-capabilities">{chips}</div><p class="layer-copy">{esc(layer[2])}</p></div>'
+    for group, indices in enumerate([[0,1,2],[3,4,7],[5,6]]):
+        entries = ''
+        for i in indices:
+            layer = d['layers'][i]
+            chips = ''.join(f'<span>{esc(label)}</span>' for label in layer[1])
+            entries += f'<details class="architecture-layer" data-domain="{i}" {"open" if i == 0 else ""}><summary class="layer-select"><span class="layer-code">0{i+1}</span><strong>{esc(layer[0])}</strong><span class="layer-plus" aria-hidden="true">+</span></summary><p class="layer-copy">{esc(layer[2])}</p><div class="layer-capabilities">{chips}</div></details>'
+        layers += f'<div class="capability-lane lane-{group}"><div class="lane-heading"><span aria-hidden="true">0{group+1}</span><h3>{esc(d["architectureGroups"][group])}</h3><p>{esc(d["architectureGroupNotes"][group])}</p></div><div class="lane-content">{entries}</div></div>'
     journeys = ''.join(f'<button type="button" class="journey-choice" aria-pressed="false" aria-controls="journey-description" data-domains="{",".join(map(str,j[1]))}" data-description="{esc(j[2])}"><span>0{i+1}</span>{esc(j[0])}<span aria-hidden="true">↗</span></button>' for i,j in enumerate(d['journeys']))
     community = ''.join(f'<span>{esc(label)}</span>' for label in d['architectureCommunityItems'])
-    architecture = f'<section id="architecture" class="architecture"><div class="architecture-head"><div><p class="label">{d["architectureLabel"]}</p><h2>{d["architectureTitle"]}</h2></div><p>{d["architectureIntro"]}</p></div><div class="journey-bar"><p class="label">{d["journeyLabel"]}</p><div class="journey-choices">{journeys}</div><p id="journey-description" aria-live="polite"></p></div><div class="architecture-map">{layers}</div><div class="architecture-detail"><p class="label">{d["architectureHint"]}</p><p id="layer-description" aria-live="polite">{esc(d["layers"][0][2])}</p></div><div class="architecture-community"><strong>{d["architectureCommunity"]}</strong><div>{community}</div></div><div class="architecture-caption"><p>{d["architectureNote"]}</p><a href="/assets/architecture.{d["lang"]}.svg" download>{d["architectureDownload"]} ↓</a></div><noscript>{"".join("<p>"+esc(j[0])+": "+esc(j[2])+"</p>" for j in d["journeys"])}</noscript></section>'
+    architecture = f'<section id="architecture" class="architecture"><div class="architecture-head"><div><p class="label">{d["architectureLabel"]}</p><h2>{d["architectureTitle"]}</h2></div><p>{d["architectureIntro"]}</p></div><div class="journey-bar"><p class="label">{d["journeyLabel"]}</p><div class="journey-choices">{journeys}</div><p id="journey-description" aria-live="polite"></p></div><div class="architecture-map">{layers}</div><div class="architecture-community"><strong>{d["architectureCommunity"]}</strong><div>{community}</div></div><div class="architecture-caption"><p>{d["architectureNote"]}</p><a href="/assets/architecture.{d["lang"]}.svg" download>{d["architectureDownload"]} ↓</a></div><noscript>{"".join("<p>"+esc(j[0])+": "+esc(j[2])+"</p>" for j in d["journeys"])}</noscript></section>'
     page = f'''<!doctype html>
 <html lang="{d['lang']}">
 <head>
@@ -48,8 +54,8 @@ for d in items:
 <meta property="og:title" content="{esc(d['title'])}"><meta property="og:description" content="{esc(d['description'])}">
 <meta property="og:url" content="{BASE}{d['path']}"><meta property="og:image" content="{BASE}/assets/oas-banner.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<script src="/assets/site.js" defer></script>
-<link rel="icon" href="/assets/oas-avatar.jpg" type="image/jpeg"><link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js?v={ASSET_VERSIONS["site.js"]}" defer></script>
+<link rel="icon" href="/assets/oas-avatar.jpg" type="image/jpeg"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSIONS["site.css"]}">
 </head>
 <body>
 <a class="skip" href="#main">{d['skip']}</a>

@@ -1,18 +1,3 @@
-const layers = [...document.querySelectorAll('.architecture-layer')];
-const description = document.getElementById('layer-description');
-if (description && layers.length) {
-  document.documentElement.classList.add('has-layer-controls');
-  for (const layer of layers) {
-    const button = layer.querySelector('.layer-select');
-    button.addEventListener('click', () => {
-      for (const candidate of layers) {
-        candidate.querySelector('.layer-select').setAttribute('aria-pressed', String(candidate === layer));
-      }
-      description.textContent = layer.querySelector('.layer-copy').textContent;
-    });
-  }
-}
-
 for (const choice of document.querySelectorAll('.direction-choice')) {
   choice.addEventListener('click', () => {
     for (const item of document.querySelectorAll('.direction-choice')) item.setAttribute('aria-pressed', String(item === choice));
@@ -60,7 +45,7 @@ if (ecoPanel) {
     group.replaceChildren();
     paths = edges.map(([from,to])=>{
       const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-      path.setAttribute('d',`M${coords[from][0]*6} ${coords[from][1]*4} L${coords[to][0]*6} ${coords[to][1]*4}`);
+      path.setAttribute('d',`M${coords[from][0]*6} ${coords[from][1]*4} Q300 ${mode===0 ? 200 : (coords[from][1]+coords[to][1])*2-50} ${coords[to][0]*6} ${coords[to][1]*4}`);
       path.dataset.from=from; path.dataset.to=to;
       group.append(path);
       return path;
