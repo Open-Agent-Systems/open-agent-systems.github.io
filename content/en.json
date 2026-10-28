@@ -2,8 +2,8 @@
   "lang": "en",
   "path": "/",
   "name": "English",
-  "title": "Open Agent Systems — AI development tools and infrastructure",
-  "description": "Open Agent Systems is an open-source organization working on AI development tools, agent infrastructure, and interoperability.",
+  "title": "Open Agent Systems — Open foundations for AI-native systems",
+  "description": "Open foundations connecting models, agents, tools, data and compute for AI systems that can run, be governed and evolve.",
   "skip": "Skip to content",
   "nav": [
     "Vision",
@@ -13,50 +13,50 @@
   ],
   "language": "Language",
   "label": "An open-source organization",
-  "headline": "Toward AI-native.<br>Built to connect.",
-  "intro": "Open Agent Systems (OAS) explores what comes after a single model call: intelligent systems that collaborate, compose, and keep running.",
-  "introMore": "Through open source, we aim to turn emerging capabilities into foundations developers can use, connect, and operate.",
+  "headline": "Connect intelligence.<br>Evolve systems.",
+  "intro": "From a model call to systems that keep doing real work. Open Agent Systems builds toward open foundations for the AI-native era.",
+  "introMore": "Connect models, agents, tools, data and compute so independent capabilities can work together and innovation can reach real use.",
   "github": "GitHub organization",
   "feedback": "Ideas & feedback",
-  "aboutTitle": "What we’re working toward",
-  "aboutText": "AI development reaches beyond the model. Tools need to work together, execution needs to be manageable, and developers need to understand what their systems are doing. These are the problems we want to work on.",
+  "aboutTitle": "Make technical investment compound",
+  "aboutText": "As AI moves from answering questions to taking action, teams need reusable foundations, controlled costs and verifiable delivery. These are the outcomes we aim to support.",
   "areas": [
     [
-      "Development",
-      "Bring AI into coding, testing, delivery, and collaboration, with attention to the everyday developer experience."
+      "Delivery",
+      "Reduce repeated integration and environment setup so teams can focus on their work."
     ],
     [
-      "Agents",
-      "Make skills, tools, and workflows reusable, so applications can be assembled around real needs."
+      "Economics",
+      "Connect model usage, task budgets and environment lifecycles to make costs visible."
     ],
     [
-      "Operations",
-      "Improve execution environments, deployment, resource management, and observability for AI workloads."
+      "Trust",
+      "Build permissions, execution evidence and result verification into workflows."
     ],
     [
-      "Integration",
-      "Help independent tools and projects work together without repeated, one-off integration work."
+      "Reuse",
+      "Share skills, knowledge, templates and practices while preserving choice and portability."
     ]
   ],
-  "directionTitle": "Where we want to go",
+  "directionTitle": "From open components to a connected ecosystem",
   "directionIntro": "We expect the work to move from individual tools toward connected systems. Each step should build on working software and lessons from its users.",
-  "diagramTitle": "Long-term direction: useful tools, manageable systems, interoperable capabilities, and a shared ecosystem",
+  "diagramTitle": "Long-term directions",
   "steps": [
     [
-      "Useful tools",
-      "Turn emerging capabilities into usable tools. Validate their value in real development scenarios, with documentation, examples, and a considered user experience."
+      "Useful foundations",
+      "Build model access, execution, asset management and verification around real needs. Each component should stand on its own."
     ],
     [
-      "Manageable systems",
-      "Move from one-off experiments toward sustained operation. Make deployment, scheduling, state, and observability understandable and manageable."
+      "Composable systems",
+      "Connect projects through clear interfaces and compatibility checks, linking tasks, identity, assets and evidence."
     ],
     [
-      "Interoperable capabilities",
-      "Compose models, agents, and tools through clear interfaces. Reduce repeated integration work while preserving the freedom to replace components."
+      "Cross-environment work",
+      "Explore collaboration across local, private-cloud, public-cloud and edge environments with explicit data and portability boundaries."
     ],
     [
-      "A shared ecosystem",
-      "Help independent projects share foundations. Evolve the ecosystem through open collaboration, documentation, and feedback from practice."
+      "An evolving ecosystem",
+      "Explore trusted delegation and capability distribution across organizations, with improvements evaluated and reviewed before release."
     ]
   ],
   "feedbackLoop": "Real use and community feedback inform every stage.",
@@ -80,59 +80,102 @@
   "joinText": "Have a use case, an integration problem, or an idea for the ecosystem? Tell us what you’re trying to do, what is getting in the way, and what you’ve already tried.",
   "joinNote": "Organization-level suggestions are welcome in the community repository’s Issues. Contributions to individual projects will be handled in their own repositories when they are published.",
   "joinButton": "Open a community issue",
-  "footer": "Open-source tools and infrastructure for AI development.",
+  "footer": "Open foundations for the AI-native era.",
   "source": "Website source",
   "community": "Community profile",
-  "architectureTitle": "An ecosystem, built to connect.",
-  "architectureIntro": "A target capability map for the organization—not the deployment architecture of a single product. Independent projects can contribute at different layers.",
-  "architectureLabel": "ECOSYSTEM ARCHITECTURE",
-  "architectureNote": "Planning view · These capabilities are areas to develop, not a claim of completed delivery.",
+  "architectureTitle": "One task. A connected system.",
+  "architectureIntro": "Explore how eight capability domains work together. Choose a task path to highlight its capabilities, or select any domain to inspect its role.",
+  "architectureLabel": "OPEN SYSTEMS / CAPABILITY MAP",
+  "architectureNote": "Ecosystem plan and conceptual interaction. Intended capabilities and relationships, not shipped products or live telemetry.",
   "architectureDownload": "Download architecture diagram (SVG)",
-  "architectureHint": "Select a layer to explore its role.",
+  "architectureHint": "SELECTED DOMAIN",
   "architectureSupport": "Execution & operational support ↑",
   "architectureCompose": "Reusable capabilities ↑",
-  "architectureCommunity": "Open collaboration",
+  "architectureCommunity": "Shared foundations",
   "architectureCommunityItems": [
-    "Contributors & independent projects",
-    "Interface agreements",
-    "Documentation & verification"
+    "Open interfaces",
+    "Compatibility checks",
+    "Community contribution"
   ],
   "layers": [
     [
-      "Applications & developer experience",
+      "Models & gateways",
       [
-        "AI-assisted development",
-        "Agent applications",
-        "Team workflows"
+        "Model proxy",
+        "Routing & fallback",
+        "Quotas & metering"
       ],
-      "The user-facing layer: tools and applications that solve specific development and collaboration problems."
+      "Govern model access, traffic, credentials and costs while preserving choice of providers."
     ],
     [
-      "Shared AI capabilities",
+      "Agent orchestration",
       [
-        "Agents & skills",
-        "Workflow orchestration",
-        "Model & tool integration",
-        "Context management"
+        "Task orchestration",
+        "Agent collaboration",
+        "Human oversight"
       ],
-      "Reusable capabilities with clear interfaces. Projects should be able to compose what they need without adopting the entire ecosystem."
+      "Coordinate planning, delegation and long-running work around explicit goals and acceptance criteria."
     ],
     [
-      "Cloud-native foundations",
+      "Runtimes & sandboxes",
       [
-        "Runtimes & sandboxes",
-        "Deployment & scheduling",
-        "Resource management",
-        "Observability"
+        "Execution isolation",
+        "Scheduling & recovery",
+        "Lifecycle governance"
       ],
-      "The execution layer: environments and operational tools that make AI workloads easier to deploy, inspect, and manage."
+      "Provide controlled code, browser and desktop environments from provisioning to suspension, recovery and cleanup."
+    ],
+    [
+      "Context, state & knowledge",
+      [
+        "Context engineering",
+        "Checkpoints",
+        "Memory & knowledge"
+      ],
+      "Separate what a model sees from durable task facts, with traceable knowledge and bounded access."
+    ],
+    [
+      "AI assets & supply chain",
+      [
+        "Registry & discovery",
+        "Versioning & delivery",
+        "Provenance & dependencies"
+      ],
+      "Make prompts, skills, tools, agents and environment templates verifiable, reusable and traceable."
+    ],
+    [
+      "Security & governance",
+      [
+        "Identity & access",
+        "Policy & approval",
+        "Budgets & audit"
+      ],
+      "Carry identity, permissions and budgets through calls and execution with explicit accountability."
+    ],
+    [
+      "Evaluation & improvement",
+      [
+        "Traces & replay",
+        "Quality & cost",
+        "Validation & release"
+      ],
+      "Turn task evidence into diagnosis, evaluated changes and controlled releases."
+    ],
+    [
+      "Developer experience",
+      [
+        "SDKs & CLIs",
+        "Debugging & delivery",
+        "Applied practice"
+      ],
+      "Bring shared capabilities into everyday development and validate them through real workflows."
     ]
   ],
   "heroKicker": "OPEN AGENT SYSTEMS / OPEN SOURCE",
   "heroSide": "Tools. Runtimes. Interfaces.",
   "visionLabel": "OUR VISION",
-  "visionTitle": "Make AI capabilities an open, shared foundation.",
-  "visionText": "We want developers to choose their models, compose agents and tools, and run systems in environments they can control. Independent projects should share foundations, and contributors should help them evolve—making advances in AI useful to more people.",
+  "visionTitle": "From individual capabilities to shared foundations.",
+  "visionText": "Developers should be able to choose models, compose capabilities and control execution. Teams should turn their work into reusable assets, while independent projects evolve together through open interfaces.",
   "exploreLabel": "Explore the target ecosystem",
   "exploreNote": "Concept exploration · Select a node to see its role",
   "exploreItems": [
@@ -157,5 +200,41 @@
       "Compose underlying capabilities into products developers and teams can actually use."
     ]
   ],
-  "directionHint": "Select a direction to explore the work"
+  "directionHint": "Select a direction to explore the work",
+  "journeyLabel": "EXPLORE A TASK PATH",
+  "journeys": [
+    [
+      "Run a long task",
+      [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "Access a model → orchestrate work → execute in isolation → persist state → verify results. Permissions and budgets constrain execution."
+    ],
+    [
+      "Publish a reusable skill",
+      [
+        4,
+        5,
+        6,
+        7
+      ],
+      "Develop and debug → evaluate → review access → publish a version. Turn an implementation into a discoverable, traceable asset."
+    ],
+    [
+      "Connect independent systems",
+      [
+        0,
+        1,
+        3,
+        4,
+        5
+      ],
+      "Discover capabilities → verify identity and access → delegate tasks → exchange state and results across explicit boundaries."
+    ]
+  ]
 }

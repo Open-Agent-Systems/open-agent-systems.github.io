@@ -1,48 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1040" viewBox="0 0 1440 1040" role="img" aria-labelledby="title desc">
-<title id="title">Open Agent Systems — ECOSYSTEM ARCHITECTURE</title>
-<desc id="desc">A target capability map for the organization—not the deployment architecture of a single product. Independent projects can contribute at different layers. Planning view · These capabilities are areas to develop, not a claim of completed delivery.</desc>
-<style>text{font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;fill:#f4f1ea}.muted{fill:#aab4b5}.accent{fill:#e1a18a}</style>
-<rect width="1440" height="1040" fill="#141f24"/>
-<text x="80" y="85" font-size="24">OPEN AGENT SYSTEMS</text>
-<text x="80" y="140" font-size="36" font-weight="600">ECOSYSTEM ARCHITECTURE</text>
-<rect x="80" y="190" width="1280" height="148" rx="4" fill="#1c2b31" stroke="#46565b"/>
-<text x="110" y="233" font-size="14" class="accent">L3</text>
-<text x="160" y="235" font-size="25" font-weight="600">Applications &amp; developer experience</text>
-<rect x="110.0" y="262" width="387.3333333333333" height="49" fill="#23373f"/>
-<text x="128.0" y="293" font-size="20">AI-assisted development</text>
-<rect x="513.3333333333333" y="262" width="387.3333333333333" height="49" fill="#23373f"/>
-<text x="531.3333333333333" y="293" font-size="20">Agent applications</text>
-<rect x="916.6666666666666" y="262" width="387.3333333333333" height="49" fill="#23373f"/>
-<text x="934.6666666666666" y="293" font-size="20">Team workflows</text>
-<path d="M720 377V349m-6 6 6-6 6 6" fill="none" stroke="#e1a18a" stroke-width="2"/>
-<rect x="80" y="390" width="1280" height="148" rx="4" fill="#1c2b31" stroke="#46565b"/>
-<text x="110" y="433" font-size="14" class="accent">L2</text>
-<text x="160" y="435" font-size="25" font-weight="600">Shared AI capabilities</text>
-<rect x="110.0" y="462" width="286.5" height="49" fill="#23373f"/>
-<text x="128.0" y="493" font-size="20">Agents &amp; skills</text>
-<rect x="412.5" y="462" width="286.5" height="49" fill="#23373f"/>
-<text x="430.5" y="493" font-size="20">Workflow orchestration</text>
-<rect x="715.0" y="462" width="286.5" height="49" fill="#23373f"/>
-<text x="733.0" y="493" font-size="20">Model &amp; tool integration</text>
-<rect x="1017.5" y="462" width="286.5" height="49" fill="#23373f"/>
-<text x="1035.5" y="493" font-size="20">Context management</text>
-<path d="M720 577V549m-6 6 6-6 6 6" fill="none" stroke="#e1a18a" stroke-width="2"/>
-<rect x="80" y="590" width="1280" height="148" rx="4" fill="#1c2b31" stroke="#46565b"/>
-<text x="110" y="633" font-size="14" class="accent">L1</text>
-<text x="160" y="635" font-size="25" font-weight="600">Cloud-native foundations</text>
-<rect x="110.0" y="662" width="286.5" height="49" fill="#23373f"/>
-<text x="128.0" y="693" font-size="20">Runtimes &amp; sandboxes</text>
-<rect x="412.5" y="662" width="286.5" height="49" fill="#23373f"/>
-<text x="430.5" y="693" font-size="20">Deployment &amp; scheduling</text>
-<rect x="715.0" y="662" width="286.5" height="49" fill="#23373f"/>
-<text x="733.0" y="693" font-size="20">Resource management</text>
-<rect x="1017.5" y="662" width="286.5" height="49" fill="#23373f"/>
-<text x="1035.5" y="693" font-size="20">Observability</text>
-<path d="M100 770H1340" stroke="#738084" stroke-dasharray="5 7"/>
-<text x="110" y="820" font-size="23" class="accent">Open collaboration</text>
-<text x="370" y="820" font-size="20">Contributors &amp; independent projects</text>
-<text x="700" y="820" font-size="20">Interface agreements</text>
-<text x="1030" y="820" font-size="20">Documentation &amp; verification</text>
-<text x="80" y="920" font-size="18" class="muted">Planning view: intended capability areas, not a claim of completed delivery.</text>
-<text x="80" y="952" font-size="18" class="muted">An ecosystem capability map, not the deployment architecture of a single product.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1120" viewBox="0 0 1440 1120" role="img" aria-labelledby="title desc">
+<title id="title">Open Agent Systems — OPEN SYSTEMS / CAPABILITY MAP</title>
+<desc id="desc">Ecosystem plan and conceptual interaction. Intended capabilities and relationships, not shipped products or live telemetry.</desc>
+<style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#eff2ed}.accent{fill:#e1a18a}</style>
+<rect width="1440" height="1120" fill="#141f24"/>
+<text x="70" y="70" font-size="22" class="accent">OPEN AGENT SYSTEMS</text>
+<text x="70" y="125" font-size="32">One task. A connected system.</text>
+<rect x="70" y="170" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
+<text x="94" y="208" font-size="14" class="accent">01</text>
+<text x="94" y="247" font-size="26">Models &amp; gateways</text>
+<text x="94" y="295" font-size="17">Model proxy</text>
+<text x="298" y="295" font-size="17">Routing &amp; fallback</text>
+<text x="502" y="295" font-size="17">Quotas &amp; metering</text>
+<rect x="730" y="170" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
+<text x="754" y="208" font-size="14" class="accent">02</text>
+<text x="754" y="247" font-size="26">Agent orchestration</text>
+<text x="754" y="295" font-size="17">Task orchestration</text>
+<text x="958" y="295" font-size="17">Agent collaboration</text>
+<text x="1162" y="295" font-size="17">Human oversight</text>
+<rect x="70" y="360" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
+<text x="94" y="398" font-size="14" class="accent">03</text>
+<text x="94" y="437" font-size="26">Runtimes &amp; sandboxes</text>
+<text x="94" y="485" font-size="17">Execution isolation</text>
+<text x="298" y="485" font-size="17">Scheduling &amp; recovery</text>
+<text x="502" y="485" font-size="17">Lifecycle governance</text>
+<rect x="730" y="360" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
+<text x="754" y="398" font-size="14" class="accent">04</text>
+<text x="754" y="437" font-size="26">Context, state &amp; knowledge</text>
+<text x="754" y="485" font-size="17">Context engineering</text>
+<text x="958" y="485" font-size="17">Checkpoints</text>
+<text x="1162" y="485" font-size="17">Memory &amp; knowledge</text>
+<rect x="70" y="550" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
+<text x="94" y="588" font-size="14" class="accent">05</text>
+<text x="94" y="627" font-size="26">AI assets &amp; supply chain</text>
+<text x="94" y="675" font-size="17">Registry &amp; discovery</text>
+<text x="298" y="675" font-size="17">Versioning &amp; delivery</text>
+<text x="502" y="675" font-size="17">Provenance &amp; dependencies</text>
+<rect x="730" y="550" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
+<text x="754" y="588" font-size="14" class="accent">06</text>
+<text x="754" y="627" font-size="26">Security &amp; governance</text>
+<text x="754" y="675" font-size="17">Identity &amp; access</text>
+<text x="958" y="675" font-size="17">Policy &amp; approval</text>
+<text x="1162" y="675" font-size="17">Budgets &amp; audit</text>
+<rect x="70" y="740" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
+<text x="94" y="778" font-size="14" class="accent">07</text>
+<text x="94" y="817" font-size="26">Evaluation &amp; improvement</text>
+<text x="94" y="865" font-size="17">Traces &amp; replay</text>
+<text x="298" y="865" font-size="17">Quality &amp; cost</text>
+<text x="502" y="865" font-size="17">Validation &amp; release</text>
+<rect x="730" y="740" width="640" height="170" fill="#1c2b31" stroke="#526a73"/>
+<text x="754" y="778" font-size="14" class="accent">08</text>
+<text x="754" y="817" font-size="26">Developer experience</text>
+<text x="754" y="865" font-size="17">SDKs &amp; CLIs</text>
+<text x="958" y="865" font-size="17">Debugging &amp; delivery</text>
+<text x="1162" y="865" font-size="17">Applied practice</text>
+<text x="70" y="970" font-size="22" class="accent">Shared foundations</text>
+<text x="360" y="970" font-size="20">Open interfaces</text>
+<text x="680" y="970" font-size="20">Compatibility checks</text>
+<text x="1000" y="970" font-size="20">Community contribution</text>
+<text x="70" y="1050" font-size="18">Ecosystem plan: intended capability areas, not a claim of completed delivery.</text>
 </svg>

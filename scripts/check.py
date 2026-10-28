@@ -2,6 +2,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 import json
+import re
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,11 +34,13 @@ for f,p in pages.items():
 locales=[json.loads(f.read_text()) for f in (ROOT/'content').glob('*.json')]
 assert all(set(d)==set(locales[0]) for d in locales)
 assert all(len(d['areas'])==4 and len(d['principles'])==3 and len(d['steps'])==4 for d in locales)
-assert not any('OMA' in f.read_text() for f in DOCS.rglob('*.html'))
+assert not any(re.search(r'\bOMA\b', f.read_text()) for f in DOCS.rglob('*.html'))
 print('[PASS] Local links, anchors, languages, page headings, image alt, and content scope')
 
 for d in locales:
-    assert len(d['layers']) == 3
+    assert len(d['layers']) == 8
+    assert len(d['journeys']) == 3
+    assert all(all(0 <= i < len(d['layers']) for i in j[1]) for j in d['journeys'])
     svg = DOCS / 'assets' / ('architecture.' + d['lang'] + '.svg')
     text = ''.join(ET.parse(svg).getroot().itertext())
     for layer in d['layers']:

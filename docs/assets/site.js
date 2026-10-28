@@ -29,3 +29,16 @@ for (const choice of document.querySelectorAll('.direction-choice')) {
     document.getElementById('direction-description').textContent = choice.dataset.description;
   });
 }
+
+const journeys = [...document.querySelectorAll('.journey-choice')];
+for (const journey of journeys) {
+  journey.addEventListener('click', () => {
+    for (const item of journeys) item.setAttribute('aria-pressed', String(item === journey));
+    const domains = journey.dataset.domains.split(',');
+    for (const domain of document.querySelectorAll('[data-domain]')) {
+      domain.classList.toggle('in-path', domains.includes(domain.dataset.domain));
+    }
+    document.getElementById('journey-description').textContent = journey.dataset.description;
+  });
+}
+journeys[0]?.click();
