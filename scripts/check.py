@@ -48,3 +48,9 @@ for d in locales:
         assert all(label in text for label in layer[1])
     assert d['architectureCommunity'] in text
 print('[PASS] SVG architecture exports contain every localized layer and capability')
+
+for d in locales:
+    eco = d['ecosystemView']
+    assert len(eco['nodes']) == 6 and len(eco['modes']) == 3
+    assert all(sorted(mode[3]) == list(range(6)) for mode in eco['modes'])
+print('[PASS] Ecosystem views each traverse all six valid capabilities')
