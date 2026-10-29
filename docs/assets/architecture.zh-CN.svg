@@ -1,72 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1150" viewBox="0 0 1600 1150" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1250" viewBox="0 0 1600 1250" role="img" aria-labelledby="title desc">
 <title id="title">构建 AI 原生系统的共同基础。</title>
 <desc id="desc">生态规划与概念交互 · 展示拟建设的能力及协作关系，不代表已交付产品或真实运行数据。</desc>
-<style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#253445}.accent{fill:#d74600}</style>
-<rect width="1600" height="1150" fill="#ffffff"/>
-<text x="60" y="65" font-size="21" class="accent">OPEN AGENT SYSTEMS</text>
-<text x="60" y="120" font-size="34" class="">构建 AI 原生系统的共同基础。</text>
-<rect x="60" y="165" width="1480" height="95" fill="#fff3e8" stroke="#d8e0e8"/>
-<text x="85" y="202" font-size="17" class="accent">应用与业务价值</text>
-<text x="410" y="220" font-size="23" class="">研发交付</text>
-<text x="770" y="220" font-size="23" class="">智能运维</text>
-<text x="1130" y="220" font-size="23" class="">业务自动化</text>
-<rect x="60" y="305" width="330" height="485" fill="#f7f9fc" stroke="#d8e0e8"/>
-<text x="80" y="342" font-size="16" class="accent">知识与资产基础</text>
-<rect x="415" y="305" width="770" height="485" fill="#f7f9fc" stroke="#d8e0e8"/>
-<text x="435" y="342" font-size="16" class="accent">构建与运行体系</text>
-<rect x="1210" y="305" width="330" height="485" fill="#f7f9fc" stroke="#d8e0e8"/>
-<text x="1230" y="342" font-size="16" class="accent">治理与演进体系</text>
-<rect x="78" y="365" width="294" height="183" fill="#f7f9fc" stroke="#d8e0e8"/>
-<text x="93" y="395" font-size="18" class="">上下文、状态与知识</text>
-<text x="93" y="424" font-size="15" class="">上下文工程</text>
-<text x="93" y="447" font-size="15" class="">任务检查点</text>
-<text x="93" y="470" font-size="15" class="">记忆与知识</text>
-<rect x="78" y="574" width="294" height="190" fill="#f7f9fc" stroke="#d8e0e8"/>
-<text x="93" y="604" font-size="18" class="">AI 资产与供应链</text>
-<text x="93" y="633" font-size="15" class="">注册与发现</text>
-<text x="93" y="656" font-size="15" class="">版本与分发</text>
-<text x="93" y="679" font-size="15" class="">来源与依赖</text>
-<rect x="435" y="365" width="730" height="115" fill="#fff7f0" stroke="#d8e0e8"/>
-<text x="453" y="397" font-size="21" class="">开发体验与应用</text>
-<text x="453" y="442" font-size="15" class="">SDK 与 CLI</text>
-<text x="688" y="442" font-size="15" class="">调试与交付</text>
-<text x="923" y="442" font-size="15" class="">场景实践</text>
-<rect x="435" y="500" width="730" height="115" fill="#fff7f0" stroke="#d8e0e8"/>
-<text x="453" y="532" font-size="21" class="">智能体构建与协作</text>
-<text x="453" y="577" font-size="15" class="">任务编排</text>
-<text x="688" y="577" font-size="15" class="">多智能体协作</text>
-<text x="923" y="577" font-size="15" class="">人工介入</text>
-<rect x="435" y="635" width="350" height="140" fill="#f7f9fc" stroke="#d8e0e8"/>
-<text x="450" y="665" font-size="18" class="">模型服务与网关</text>
-<text x="450" y="694" font-size="15" class="">模型代理</text>
-<text x="450" y="717" font-size="15" class="">路由与降级</text>
-<text x="450" y="740" font-size="15" class="">配额与计量</text>
-<rect x="805" y="635" width="360" height="140" fill="#f7f9fc" stroke="#d8e0e8"/>
-<text x="820" y="665" font-size="18" class="">运行环境与沙箱</text>
-<text x="820" y="694" font-size="15" class="">环境隔离</text>
-<text x="820" y="717" font-size="15" class="">调度与恢复</text>
-<text x="820" y="740" font-size="15" class="">生命周期治理</text>
-<rect x="1228" y="365" width="294" height="183" fill="#f7f9fc" stroke="#d8e0e8"/>
-<text x="1243" y="395" font-size="18" class="">安全与治理</text>
-<text x="1243" y="424" font-size="15" class="">身份与授权</text>
-<text x="1243" y="447" font-size="15" class="">策略与审批</text>
-<text x="1243" y="470" font-size="15" class="">预算与审计</text>
-<rect x="1228" y="574" width="294" height="190" fill="#f7f9fc" stroke="#d8e0e8"/>
-<text x="1243" y="604" font-size="18" class="">评测与持续优化</text>
-<text x="1243" y="633" font-size="15" class="">轨迹与回放</text>
-<text x="1243" y="656" font-size="15" class="">质量与成本</text>
-<text x="1243" y="679" font-size="15" class="">验证与发布</text>
-<rect x="60" y="825" width="1480" height="90" fill="#f0f3f7" stroke="#d8e0e8"/>
-<text x="85" y="860" font-size="19" class="accent">开放互操作基础</text>
-<text x="410" y="880" font-size="17" class="">开放接口</text>
-<text x="690" y="880" font-size="17" class="">能力描述</text>
-<text x="970" y="880" font-size="17" class="">兼容性验证</text>
-<text x="1250" y="880" font-size="17" class="">社区共建</text>
-<text x="60" y="965" font-size="17" class="accent">跨环境运行愿景</text>
-<text x="440" y="965" font-size="18" class="">本地</text>
-<text x="690" y="965" font-size="18" class="">私有云</text>
-<text x="940" y="965" font-size="18" class="">公有云</text>
-<text x="1190" y="965" font-size="18" class="">边缘</text>
-<text x="60" y="1030" font-size="17" class="accent">共同基础</text>
-<text x="60" y="1090" font-size="16" class="">生态规划 · 拟建设的能力范围，不代表已全部交付。</text>
+<style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#354b57}.iso-map-connections{fill:none;stroke:#9eb2bd;stroke-width:1.3;stroke-dasharray:4 8}</style>
+<rect width="1600" height="1250" fill="#f5f8f9"/>
+<text x="60" y="60" font-size="18">OPEN AGENT SYSTEMS / CAPABILITY MAP</text>
+<text x="60" y="115" font-size="34">构建 AI 原生系统的共同基础。</text>
+<rect x="60" y="150" width="1480" height="80" fill="#f7eee7" stroke="#d9c1af"/>
+<text x="85" y="197" font-size="18">应用与业务价值</text>
+<text x="430" y="197" font-size="23">研发交付</text>
+<text x="790" y="197" font-size="23">智能运维</text>
+<text x="1150" y="197" font-size="23">业务自动化</text>
+<g transform="translate(60 250) scale(1.48 1.3)"><ellipse cx="510" cy="527" rx="350" ry="30" fill="#7a919b" opacity=".10"/><g class="iso-deck"><polygon points="500,525 800,425 800,447 500,547" fill="#c3cfd5"/><polygon points="520,340 800,425 800,447 520,362" fill="#b8c6cc"/><polygon points="220,425 520,340 800,425 500,525" fill="#e9eff1" stroke="#b9c8ce" stroke-width="1"/></g><g class="iso-deck"><polygon points="500,365 760,275 760,293 500,383" fill="#ccd6da"/><polygon points="520,205 760,275 760,293 520,223" fill="#b8c6cc"/><polygon points="260,275 520,205 760,275 500,365" fill="#f8fafb" stroke="#b9c8ce" stroke-width="1"/></g><g class="iso-deck"><polygon points="500,195 710,120 710,136 500,211" fill="#dfc7b4"/><polygon points="520,65 710,120 710,136 520,81" fill="#b8c6cc"/><polygon points="310,120 520,65 710,120 500,195" fill="#fff5ec" stroke="#b9c8ce" stroke-width="1"/></g><g class="iso-deck"><polygon points="130,270 240,230 240,242 130,282" fill="#ccd6da"/><polygon points="130,195 240,230 240,242 130,207" fill="#b8c6cc"/><polygon points="20,230 130,195 240,230 130,270" fill="#f8fafb" stroke="#b9c8ce" stroke-width="1"/></g><g class="iso-deck"><polygon points="130,435 240,395 240,407 130,447" fill="#ccd6da"/><polygon points="130,360 240,395 240,407 130,372" fill="#b8c6cc"/><polygon points="20,395 130,360 240,395 130,435" fill="#f8fafb" stroke="#b9c8ce" stroke-width="1"/></g><g class="iso-deck"><polygon points="870,270 980,230 980,242 870,282" fill="#ccd6da"/><polygon points="870,195 980,230 980,242 870,207" fill="#b8c6cc"/><polygon points="760,230 870,195 980,230 870,270" fill="#f8fafb" stroke="#b9c8ce" stroke-width="1"/></g><g class="iso-deck"><polygon points="870,435 980,395 980,407 870,447" fill="#ccd6da"/><polygon points="870,360 980,395 980,407 870,372" fill="#b8c6cc"/><polygon points="760,395 870,360 980,395 870,435" fill="#f8fafb" stroke="#b9c8ce" stroke-width="1"/></g><g class="iso-map-connections"><path d="M130 245L300 300L500 310M870 245L700 300L500 310M130 410L300 450L500 460M870 410L700 450L500 460M500 460V310M500 310V145"/></g>
+<rect x="293" y="409" width="194" height="80" fill="#cedbe1"/><rect x="289" y="403" width="194" height="80" fill="#ffffff" stroke="#adc1cc"/>
+<text x="300" y="425" font-size="12">01 / 模型服务与网关</text>
+<text x="300" y="442" font-size="10">模型代理</text>
+<text x="300" y="457" font-size="10">路由与降级</text>
+<text x="300" y="472" font-size="10">配额与计量</text>
+<rect x="403" y="249" width="194" height="80" fill="#cedbe1"/><rect x="399" y="243" width="194" height="80" fill="#ffffff" stroke="#adc1cc"/>
+<text x="410" y="265" font-size="12">02 / 智能体构建与协作</text>
+<text x="410" y="282" font-size="10">任务编排</text>
+<text x="410" y="297" font-size="10">多智能体协作</text>
+<text x="410" y="312" font-size="10">人工介入</text>
+<rect x="553" y="409" width="194" height="80" fill="#cedbe1"/><rect x="549" y="403" width="194" height="80" fill="#ffffff" stroke="#adc1cc"/>
+<text x="560" y="425" font-size="12">03 / 运行环境与沙箱</text>
+<text x="560" y="442" font-size="10">环境隔离</text>
+<text x="560" y="457" font-size="10">调度与恢复</text>
+<text x="560" y="472" font-size="10">生命周期治理</text>
+<rect x="33" y="214" width="194" height="80" fill="#cedbe1"/><rect x="29" y="208" width="194" height="80" fill="#ffffff" stroke="#adc1cc"/>
+<text x="40" y="230" font-size="12">04 / 上下文、状态与知识</text>
+<text x="40" y="247" font-size="10">上下文工程</text>
+<text x="40" y="262" font-size="10">任务检查点</text>
+<text x="40" y="277" font-size="10">记忆与知识</text>
+<rect x="33" y="364" width="194" height="80" fill="#cedbe1"/><rect x="29" y="358" width="194" height="80" fill="#ffffff" stroke="#adc1cc"/>
+<text x="40" y="380" font-size="12">05 / AI 资产与供应链</text>
+<text x="40" y="397" font-size="10">注册与发现</text>
+<text x="40" y="412" font-size="10">版本与分发</text>
+<text x="40" y="427" font-size="10">来源与依赖</text>
+<rect x="773" y="214" width="194" height="80" fill="#cedbe1"/><rect x="769" y="208" width="194" height="80" fill="#ffffff" stroke="#adc1cc"/>
+<text x="780" y="230" font-size="12">06 / 安全与治理</text>
+<text x="780" y="247" font-size="10">身份与授权</text>
+<text x="780" y="262" font-size="10">策略与审批</text>
+<text x="780" y="277" font-size="10">预算与审计</text>
+<rect x="773" y="364" width="194" height="80" fill="#cedbe1"/><rect x="769" y="358" width="194" height="80" fill="#ffffff" stroke="#adc1cc"/>
+<text x="780" y="380" font-size="12">07 / 评测与持续优化</text>
+<text x="780" y="397" font-size="10">轨迹与回放</text>
+<text x="780" y="412" font-size="10">质量与成本</text>
+<text x="780" y="427" font-size="10">验证与发布</text>
+<rect x="403" y="94" width="194" height="80" fill="#cedbe1"/><rect x="399" y="88" width="194" height="80" fill="#ffffff" stroke="#adc1cc"/>
+<text x="410" y="110" font-size="12">08 / 开发体验与应用</text>
+<text x="410" y="127" font-size="10">SDK 与 CLI</text>
+<text x="410" y="142" font-size="10">调试与交付</text>
+<text x="410" y="157" font-size="10">场景实践</text>
+</g>
+<rect x="60" y="1040" width="1480" height="70" fill="#e8eff2" stroke="#d4dfe5"/>
+<text x="85" y="1082" font-size="20">开放互操作基础</text>
+<text x="430" y="1082" font-size="17">开放接口</text>
+<text x="700" y="1082" font-size="17">能力描述</text>
+<text x="970" y="1082" font-size="17">兼容性验证</text>
+<text x="1240" y="1082" font-size="17">社区共建</text>
+<text x="60" y="1158" font-size="17">跨环境运行愿景</text>
+<text x="450" y="1158" font-size="18">本地</text>
+<text x="700" y="1158" font-size="18">私有云</text>
+<text x="950" y="1158" font-size="18">公有云</text>
+<text x="1200" y="1158" font-size="18">边缘</text>
+<text x="60" y="1190" font-size="14">共同基础</text>
+<text x="60" y="1220" font-size="14">生态规划 · 拟建设的能力范围，不代表已全部交付。</text>
 </svg>

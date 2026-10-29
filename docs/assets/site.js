@@ -14,6 +14,7 @@ const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let selectedDomain = null;
 function inspectDomain(id, moveFocus = false) {
   selectedDomain = id;
+  document.querySelector('.capability-inspector').scrollTop = 0;
   const selected = layers.find(layer => layer.dataset.domain === id);
   const related = selected?.dataset.related.split(',') || [];
   architectureMap.classList.toggle('is-exploring', Boolean(selected));
@@ -22,14 +23,15 @@ function inspectDomain(id, moveFocus = false) {
     layer.classList.toggle('is-open', active);
     layer.classList.toggle('is-related', related.includes(layer.dataset.domain));
     layer.querySelector('.layer-select').setAttribute('aria-expanded', String(active));
-    layer.querySelector('.node-insight').hidden = !active;
+    document.getElementById(`insight-${layer.dataset.domain}`).hidden = !active;
   }
+  document.querySelector('.inspector-welcome').hidden = Boolean(selected);
   for (const button of stepper.querySelectorAll('button')) button.setAttribute('aria-pressed', String(button.dataset.target === id));
   document.querySelectorAll('.insight-navigation').forEach(el=>el.remove());
   if (selected) {
     const steps=[...stepper.querySelectorAll('button')];
     const index=steps.findIndex(button=>button.dataset.target===id);
-    if(index>=0){
+    if(index>=0 && !stepper.hidden){
       const nav=document.createElement('div');nav.className='insight-navigation';
       for(const offset of [-1,1]){
         const target=steps[index+offset];if(!target)continue;
@@ -37,20 +39,21 @@ function inspectDomain(id, moveFocus = false) {
         button.textContent=(offset<0?'← ':'')+target.querySelector('strong').textContent+(offset>0?' →':'');
         button.addEventListener('click',()=>inspectDomain(target.dataset.target,true));nav.append(button);
       }
-      selected.querySelector('.node-insight').insertBefore(nav,selected.querySelector('.insight-close'));
+      const panel=document.getElementById(`insight-${id}`);panel.insertBefore(nav,panel.querySelector('.insight-close'));
     }
   }
   if (moveFocus && selected) {
     const button = selected.querySelector('.layer-select');
     button.focus({preventScroll:true});
-    button.scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'start'});
+    document.querySelector('.capability-inspector').scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'nearest'});
   }
 }
 for (const layer of layers) {
-  layer.querySelector('.layer-select').addEventListener('click', () => inspectDomain(selectedDomain === layer.dataset.domain ? null : layer.dataset.domain));
-  layer.querySelector('.insight-close').addEventListener('click', () => {inspectDomain(null);layer.querySelector('.layer-select').focus({preventScroll:true});});
+  layer.querySelector('.layer-select').addEventListener('click', () => inspectDomain(selectedDomain === layer.dataset.domain ? null : layer.dataset.domain, matchMedia('(max-width:960px)').matches));
+  document.querySelector(`[data-close="${layer.dataset.domain}"]`).addEventListener('click', () => {inspectDomain(null);layer.querySelector('.layer-select').focus({preventScroll:true});});
   layer.addEventListener('keydown', event => {if(event.key==='Escape' && selectedDomain===layer.dataset.domain){event.preventDefault();inspectDomain(null);layer.querySelector('.layer-select').focus({preventScroll:true});}});
 }
+document.querySelector('.capability-inspector').addEventListener('keydown',event=>{if(event.key==='Escape' && selectedDomain!==null){const id=selectedDomain;inspectDomain(null);document.querySelector(`[data-layer="${id}"]`).focus({preventScroll:true});}});
 for (const button of document.querySelectorAll('.related-capability')) button.addEventListener('click', () => inspectDomain(button.dataset.target,true));
 for (const journey of journeys) {
   journey.addEventListener('click', () => {
@@ -93,11 +96,8 @@ if (ecoPanel) {
   const modes = [...ecoPanel.querySelectorAll('.eco-mode')];
   const toggle = ecoPanel.querySelector('.eco-toggle');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const layouts = [
-    [[28,18],[72,18],[87,50],[72,82],[28,82],[13,50]],
-    [[15,22],[71,22],[85,78],[43,22],[57,78],[15,78]],
-    [[15,78],[43,78],[71,78],[85,22],[15,22],[50,22]]
-  ];
+  const positions=[[25,46],[50,19],[75,46],[25,63],[50,84],[75,63]];
+  const layouts=[positions,positions,positions];
   let mode = 0, step = 0, playing = !motion.matches, visible = true, hover = null, timer;
   let paths = [];
   function draw() {

@@ -486,5 +486,22 @@
         "Call models"
       ]
     ]
-  ]
+  ],
+  "iso": {
+    "heroLayers": [
+      "INTELLIGENT WORK",
+      "SHARED CAPABILITIES",
+      "RUNTIME FOUNDATIONS"
+    ],
+    "detailTitle": "Explore the system",
+    "detailText": "Select a capability to inspect its role, inputs, outputs and collaborators. The system overview stays in place.",
+    "legend": "Terracotta: selected · Blue-gray: connected",
+    "groups": [
+      "APPLICATIONS",
+      "ORCHESTRATION",
+      "MODELS & RUNTIME",
+      "KNOWLEDGE & ASSETS",
+      "GOVERNANCE"
+    ]
+  }
 }
