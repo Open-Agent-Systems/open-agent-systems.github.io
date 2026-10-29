@@ -54,6 +54,9 @@ for (const layer of layers) {
 for (const button of document.querySelectorAll('.related-capability')) button.addEventListener('click', () => inspectDomain(button.dataset.target,true));
 for (const journey of journeys) {
   journey.addEventListener('click', () => {
+    document.querySelector('.overview-choice').setAttribute('aria-pressed','false');
+    stepper.hidden=false;
+    document.getElementById('journey-description').hidden=false;
     inspectDomain(null);
     for (const item of journeys) item.setAttribute('aria-pressed', String(item === journey));
     const domains = journey.dataset.domains.split(',');
@@ -69,8 +72,18 @@ for (const journey of journeys) {
     });
   });
 }
-document.querySelector('.explorer-reset')?.addEventListener('click',()=>{inspectDomain(null);});
+function resetArchitecture() {
+  inspectDomain(null);
+  journeys.forEach(button=>button.setAttribute('aria-pressed','false'));
+  layers.forEach(layer=>layer.classList.remove('in-path'));
+  stepper.hidden=true;
+  document.getElementById('journey-description').hidden=true;
+  document.querySelector('.overview-choice').setAttribute('aria-pressed','true');
+}
+document.querySelector('.explorer-reset')?.addEventListener('click',resetArchitecture);
+document.querySelector('.overview-choice')?.addEventListener('click',resetArchitecture);
 journeys[0]?.click();
+resetArchitecture();
 
 // Illustration only. No model calls or runtime telemetry.
 const ecoPanel = document.querySelector('.eco-panel');

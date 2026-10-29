@@ -420,7 +420,8 @@
     "close": "Close details",
     "reset": "Reset exploration",
     "hint": "Select a capability for inputs and outputs, or follow the task steps.",
-    "context": "GOVERNANCE & VALIDATION THROUGHOUT"
+    "context": "GOVERNANCE & VALIDATION THROUGHOUT",
+    "overview": "Architecture overview"
   },
   "journeySteps": [
     [

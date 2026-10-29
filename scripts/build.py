@@ -6,7 +6,7 @@ import hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs'
-ASSET_VERSIONS = {name: hashlib.sha256((OUT / 'assets' / name).read_bytes()).hexdigest()[:12] for name in ['site.css', 'site.js']}
+ASSET_VERSIONS = {name: hashlib.sha256((OUT / 'assets' / name).read_bytes()).hexdigest()[:12] for name in ['site.css', 'site.js', 'architecture.css']}
 BASE = 'https://open-agent-systems.github.io'
 ORG = 'https://github.com/Open-Agent-Systems'
 ISSUES = ORG + '/.github/issues'
@@ -46,7 +46,7 @@ for d in items:
     layers = f'''<div class="system-outcome"><span class="system-eyebrow">{esc(st['outcome'])}</span><div>{apps}</div></div><div class="system-relations" aria-hidden="true"><span>↓</span><span>↑</span><span>↓</span></div><div class="system-body"><aside class="system-column system-resources"><h3>{esc(st['left'])}</h3>{capability(3)}{capability(4)}</aside><div class="system-column system-execution"><h3>{esc(st['middle'])}</h3>{capability(7)}<div class="system-link" aria-hidden="true">↕</div>{capability(1)}<div class="system-link" aria-hidden="true">↕</div><div class="system-runtime">{capability(0)}{capability(2)}</div></div><aside class="system-column system-control"><h3>{esc(st['right'])}</h3>{capability(5)}{capability(6)}</aside></div><div class="system-base"><strong>{esc(st['base'])}</strong><div>{base_items}</div></div><div class="system-environments"><span>{esc(st['deployment'])}</span><div>{environments}</div></div>'''
     journeys = ''.join(f'<button type="button" class="journey-choice" aria-pressed="false" aria-controls="journey-description" data-domains="{",".join(map(str,j[1]))}" data-steps="{esc(json.dumps(d["journeySteps"][i],ensure_ascii=False))}" data-description="{esc(j[2])}"><span>0{i+1}</span>{esc(j[0])}<span aria-hidden="true">↗</span></button>' for i,j in enumerate(d['journeys']))
     community = ''.join(f'<span>{esc(label)}</span>' for label in d['architectureCommunityItems'])
-    architecture = f'<section id="architecture" class="architecture"><div class="architecture-head"><div><p class="label">{d["architectureLabel"]}</p><h2>{d["architectureTitle"]}</h2></div><p>{d["architectureIntro"]}</p></div><div class="journey-bar"><p class="label">{d["journeyLabel"]}</p><div class="journey-choices">{journeys}</div><p id="journey-description" aria-live="polite"></p></div><div class="journey-stepper" aria-label="{esc(d["journeyLabel"])}"></div><div class="explorer-toolbar"><span>{esc(labels["hint"])}</span><button type="button" class="explorer-reset">{esc(labels["reset"])}</button></div><div class="architecture-map">{layers}</div><p class="system-principle">{esc(st["relation"])}</p><div class="architecture-caption"><p>{d["architectureNote"]}</p><a href="/assets/architecture.{d["lang"]}.svg" download>{d["architectureDownload"]} ↓</a></div><noscript>{"".join("<p>"+esc(j[0])+": "+esc(j[2])+"</p>" for j in d["journeys"])}</noscript></section>'
+    architecture = f'<section id="architecture" class="architecture"><div class="architecture-head"><div><p class="label">{d["architectureLabel"]}</p><h2>{d["architectureTitle"]}</h2></div><p>{d["architectureIntro"]}</p></div><div class="journey-bar"><div class="journey-choices"><button type="button" class="overview-choice" aria-pressed="true">{esc(labels["overview"])}</button>{journeys}</div><p id="journey-description" aria-live="polite"></p></div><div class="journey-stepper" aria-label="{esc(d["journeyLabel"])}"></div><div class="explorer-toolbar"><span>{esc(labels["hint"])}</span><button type="button" class="explorer-reset">{esc(labels["reset"])}</button></div><div class="architecture-map">{layers}</div><p class="system-principle">{esc(st["relation"])}</p><div class="architecture-caption"><p>{d["architectureNote"]}</p><a href="/assets/architecture.{d["lang"]}.svg" download>{d["architectureDownload"]} ↓</a></div><noscript>{"".join("<p>"+esc(j[0])+": "+esc(j[2])+"</p>" for j in d["journeys"])}</noscript></section>'
     page = f'''<!doctype html>
 <html lang="{d['lang']}">
 <head>
@@ -60,6 +60,7 @@ for d in items:
 <meta name="twitter:card" content="summary_large_image">
 <script src="/assets/site.js?v={ASSET_VERSIONS["site.js"]}" defer></script>
 <link rel="icon" href="/assets/oas-avatar.jpg" type="image/jpeg"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSIONS["site.css"]}">
+<link rel="stylesheet" href="/assets/architecture.css?v={ASSET_VERSIONS["architecture.css"]}">
 </head>
 <body>
 <a class="skip" href="#main">{d['skip']}</a>
