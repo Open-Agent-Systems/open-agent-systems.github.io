@@ -311,7 +311,12 @@
     "guards": "Identity & access · Security · Evaluation · Cost",
     "note": "Concept demo · select a node, hover to explore connections",
     "play": "Play motion",
-    "pause": "Pause motion"
+    "pause": "Pause motion",
+    "sceneTitles": [
+      "From one intent to coordinated work.",
+      "A clear path. A controlled execution.",
+      "Every outcome becomes a foundation."
+    ]
   },
   "strategic": {
     "outcome": "APPLICATION VALUE",
@@ -494,7 +499,7 @@
       "RUNTIME FOUNDATIONS"
     ],
     "detailTitle": "Explore the system",
-    "detailText": "Select a capability to inspect its role, inputs, outputs and collaborators. The system overview stays in place.",
+    "detailText": "Choose a capability to explore how it works with the rest of the system, what it receives and what it produces.",
     "legend": "Terracotta: selected · Blue-gray: connected",
     "groups": [
       "APPLICATIONS",
