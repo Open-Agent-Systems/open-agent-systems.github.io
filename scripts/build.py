@@ -7,7 +7,7 @@ from scene import scene_art, MAP_POSITIONS, HERO_POSITIONS
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs'
-ASSET_VERSIONS = {name: hashlib.sha256((OUT / 'assets' / name).read_bytes()).hexdigest()[:12] for name in ['site.css', 'site.js', 'architecture.css', 'landscape.css']}
+ASSET_VERSIONS = {name: hashlib.sha256((OUT / 'assets' / name).read_bytes()).hexdigest()[:12] for name in ['site.css', 'site.js']}
 BASE = 'https://open-agent-systems.github.io'
 ORG = 'https://github.com/Open-Agent-Systems'
 ISSUES = ORG + '/.github/issues'
@@ -69,8 +69,6 @@ for d in items:
 <meta name="twitter:card" content="summary_large_image">
 <script src="/assets/site.js?v={ASSET_VERSIONS["site.js"]}" defer></script>
 <link rel="icon" href="/assets/oas-avatar.jpg" type="image/jpeg"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSIONS["site.css"]}">
-<link rel="stylesheet" href="/assets/architecture.css?v={ASSET_VERSIONS["architecture.css"]}">
-<link rel="stylesheet" href="/assets/landscape.css?v={ASSET_VERSIONS["landscape.css"]}">
 </head>
 <body>
 <a class="skip" href="#main">{d['skip']}</a>

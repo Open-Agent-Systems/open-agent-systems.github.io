@@ -14,14 +14,14 @@ def symbol(kind, x, y):
         'developer': '<path d="M-22-18L-44 0-22 18M22-18L44 0 22 18M9-25L-9 25"/>',
         'tools': '<circle cx="-24" r="15"/><circle cx="24" r="15"/><path d="M-9 0H9M-39 0H-55M39 0H55M-24-15V-29M24 15V29"/>',
     }
-    return f'<g class="scene-symbol" transform="translate({x} {y})"><g class="scene-glyph">{artwork[kind]}</g></g>'
+    return f'<g class="scene-symbol" transform="translate({x} {y})"><g class="scene-glyph"><g transform="scale(.30)" stroke-width="4">{artwork[kind]}</g></g></g>'
 
 def scene_art(hero=False):
     positions = HERO_POSITIONS if hero else MAP_POSITIONS
     height = 440 if hero else 620
     width = 600 if hero else 1000
     kinds = ['model','agent','tools','knowledge','sandbox','assets'] if hero else ['model','agent','sandbox','knowledge','assets','governance','evaluation','developer']
-    coords = [(x*width/100, y*height/100-45) for x,y in positions]
+    coords = [(x*width/100, y*height/100-22) for x,y in positions]
     edges = [(0,1),(1,2),(3,1),(1,4),(4,5)] if hero else [(7,0),(0,1),(1,2),(3,1),(1,4),(2,6),(6,1),(4,3),(5,2)]
     parts = []
     if hero:

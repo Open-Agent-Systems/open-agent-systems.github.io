@@ -21,7 +21,7 @@ function inspectDomain(id, moveFocus = false) {
   document.querySelector('.inspected-edges')?.remove();
   if (selected) {
     const group=document.createElementNS('http://www.w3.org/2000/svg','g');group.classList.add('inspected-edges');
-    const point=layer=>[parseFloat(layer.style.getPropertyValue('--mx'))*10,parseFloat(layer.style.getPropertyValue('--my'))*6.2-45];
+    const point=layer=>[parseFloat(layer.style.getPropertyValue('--mx'))*10,parseFloat(layer.style.getPropertyValue('--my'))*6.2-22];
     const [x1,y1]=point(selected);
     related.forEach(target=>{
       const [x2,y2]=point(layers.find(layer=>layer.dataset.domain===target)),middle=(x1+x2)/2;
@@ -126,7 +126,7 @@ if (ecoPanel) {
     group.replaceChildren();
     paths = edges.map(([from,to])=>{
       const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-      const x1=coords[from][0]*6,y1=coords[from][1]*4.4-45,x2=coords[to][0]*6,y2=coords[to][1]*4.4-45,m=(x1+x2)/2;
+      const x1=coords[from][0]*6,y1=coords[from][1]*4.4-22,x2=coords[to][0]*6,y2=coords[to][1]*4.4-22,m=(x1+x2)/2;
       path.setAttribute('d',`M${x1} ${y1} C${m} ${y1},${m} ${y2},${x2} ${y2}`);
       path.dataset.from=from; path.dataset.to=to;
       group.append(path);
