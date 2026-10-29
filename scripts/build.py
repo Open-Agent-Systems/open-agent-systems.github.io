@@ -3,7 +3,7 @@ from html import escape as esc
 import json
 import runpy
 import hashlib
-from scene import scene_art, MAP_POSITIONS, HERO_POSITIONS
+from scene import scene_art, icon, MAP_POSITIONS, HERO_POSITIONS
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs'
@@ -41,10 +41,10 @@ for d in items:
         layer = d['layers'][i]
         info = d['capabilityInsights'][i]
         chips = ''.join(f'<span>{esc(label)}</span>' for label in layer[1])
-        related = ''.join(f'<button type="button" class="related-capability" data-target="{j}">{esc(d["layers"][j][0])} <span aria-hidden="true">↗</span></button>' for j in info[2])
+        related = ''.join(f'<button type="button" class="related-capability" data-target="{j}">{esc(d["layers"][j][0])} <span aria-hidden="true">›</span></button>' for j in info[2])
         insights.append(f'''<div class="node-insight" id="insight-{i}" hidden><p class="insight-code">CAPABILITY / 0{i+1}</p><h3>{esc(layer[0])}</h3><p>{esc(layer[2])}</p><dl><dt>{esc(labels['input'])}</dt><dd>{esc(info[0])}</dd><dt>{esc(labels['output'])}</dt><dd>{esc(info[1])}</dd></dl><p class="insight-label">{esc(labels['related'])}</p><div class="related-capabilities">{related}</div><button type="button" class="insight-close" data-close="{i}">{esc(labels['close'])} ↑</button></div>''')
         x,y = module_positions[i]
-        return f'<div class="architecture-layer" data-domain="{i}" data-related="{",".join(map(str,info[2]))}" style="--mx:{x}%;--my:{y}%"><button type="button" class="layer-select" aria-expanded="false" data-layer="{i}" aria-controls="insight-{i}"><span class="layer-code">0{i+1}</span><strong>{esc(layer[0])}</strong><span class="layer-plus" aria-hidden="true">↗</span></button><div class="matrix-tags">{chips}</div><noscript><p>{esc(layer[2])}</p></noscript></div>'
+        return f'<div class="architecture-layer" data-domain="{i}" data-related="{",".join(map(str,info[2]))}" style="--mx:{x}%;--my:{y}%"><button type="button" class="layer-select" aria-expanded="false" data-layer="{i}" aria-controls="insight-{i}">{icon(["model","agent","sandbox","knowledge","assets","governance","evaluation","developer"][i])}<strong>{esc(layer[0])}</strong><span class="layer-plus" aria-hidden="true"></span></button><div class="matrix-tags">{chips}</div><noscript><p>{esc(layer[2])}</p></noscript></div>'
     st = d['strategic']
     apps = ''.join(f'<span>{esc(x)}</span>' for x in st['apps'])
     base_items = ''.join(f'<span>{esc(x)}</span>' for x in st['baseItems'])
@@ -53,7 +53,7 @@ for d in items:
     def band(label, ids):
         return f'<div class="matrix-band"><h3>{esc(label)}</h3><div class="matrix-items">'+''.join(capability(i) for i in ids)+'</div></div>'
     matrix = band(ml[0],[7]) + band(ml[1],[0,1,2]) + band(ml[2],[3,4]) + band(ml[3],[5,6])
-    layers = f'''<div class="system-outcome"><span class="system-eyebrow">{esc(st['outcome'])}</span><div>{apps}</div></div><div class="iso-explorer"><div class="architecture-matrix">{matrix}</div><aside class="capability-inspector" aria-label="{esc(d['iso']['detailTitle'])}"><div class="inspector-welcome"><span class="inspector-symbol" aria-hidden="true">↗</span><h3>{esc(d['iso']['detailTitle'])}</h3><p>{esc(d['iso']['detailText'])}</p></div>{''.join(insights)}</aside></div><div class="system-base"><strong>{esc(st['base'])}</strong><div>{base_items}</div></div><div class="system-environments"><span>{esc(st['deployment'])}</span><div>{environments}</div></div>'''
+    layers = f'''<div class="system-outcome"><span class="system-eyebrow">{esc(st['outcome'])}</span><div>{apps}</div></div><div class="iso-explorer"><div class="architecture-matrix">{matrix}</div><aside class="capability-inspector" aria-label="{esc(d['iso']['detailTitle'])}"><div class="inspector-welcome">{icon("agent", "inspector-icon")}<h3>{esc(d['iso']['detailTitle'])}</h3><p>{esc(d['iso']['detailText'])}</p></div>{''.join(insights)}</aside></div><div class="system-base"><strong>{esc(st['base'])}</strong><div>{base_items}</div></div><div class="system-environments"><span>{esc(st['deployment'])}</span><div>{environments}</div></div>'''
     journeys = ''.join(f'<button type="button" class="journey-choice" aria-pressed="false" aria-controls="journey-description" data-domains="{",".join(map(str,j[1]))}" data-steps="{esc(json.dumps(d["journeySteps"][i],ensure_ascii=False))}" data-description="{esc(j[2])}"><span>0{i+1}</span>{esc(j[0])}<span aria-hidden="true">↗</span></button>' for i,j in enumerate(d['journeys']))
     community = ''.join(f'<span>{esc(label)}</span>' for label in d['architectureCommunityItems'])
     architecture = f'<section id="architecture" class="architecture"><div class="architecture-head"><div><p class="label">{d["architectureLabel"]}</p><h2>{d["architectureTitle"]}</h2></div><p>{d["architectureIntro"]}</p></div><div class="journey-bar"><div class="journey-choices"><button type="button" class="overview-choice" aria-pressed="true">{esc(labels["overview"])}</button>{journeys}</div><p id="journey-description" aria-live="polite"></p></div><div class="journey-stepper" data-prev="{esc(ml[4])}" data-next="{esc(ml[5])}" data-label="{esc(ml[6])}" aria-label="{esc(d["journeyLabel"])}"></div><div class="explorer-toolbar"><span>{esc(labels["hint"])}</span><button type="button" class="explorer-reset">{esc(labels["reset"])}</button></div><div class="architecture-map">{layers}</div><p class="system-principle">{esc(st["relation"])}</p><div class="architecture-caption"><p>{d["architectureNote"]}</p><a href="/assets/architecture.{d["lang"]}.svg" download>{d["architectureDownload"]} ↓</a></div><noscript>{"".join("<p>"+esc(j[0])+": "+esc(j[2])+"</p>" for j in d["journeys"])}</noscript></section>'
