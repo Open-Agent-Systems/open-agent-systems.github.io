@@ -18,19 +18,6 @@ function inspectDomain(id, moveFocus = false) {
   const selected = layers.find(layer => layer.dataset.domain === id);
   const related = selected?.dataset.related.split(',') || [];
   architectureMap.classList.toggle('is-exploring', Boolean(selected));
-  document.querySelector('.inspected-edges')?.remove();
-  if (selected) {
-    const group=document.createElementNS('http://www.w3.org/2000/svg','g');group.classList.add('inspected-edges');
-    const point=layer=>[parseFloat(layer.style.getPropertyValue('--mx'))*10,parseFloat(layer.style.getPropertyValue('--my'))*6.2-45];
-    const [x1,y1]=point(selected);
-    related.forEach(target=>{
-      const [x2,y2]=point(layers.find(layer=>layer.dataset.domain===target)),middle=(x1+x2)/2;
-      const path=document.createElementNS('http://www.w3.org/2000/svg','path');
-      path.setAttribute('d',`M${x1} ${y1}C${middle} ${y1},${middle} ${y2},${x2} ${y2}`);path.classList.add('scene-edge','is-connected');group.append(path);
-    });
-    const svg=document.querySelector('.iso-map-svg');svg.insertBefore(group,svg.querySelector('.scene-object'));
-  }
-  document.querySelectorAll('.iso-map-svg .scene-object').forEach(object => {object.classList.toggle('is-selected',object.dataset.object === id);object.classList.toggle('is-connected',related.includes(object.dataset.object));});
   for (const layer of layers) {
     const active = layer === selected;
     layer.classList.toggle('is-open', active);
@@ -39,21 +26,9 @@ function inspectDomain(id, moveFocus = false) {
     document.getElementById(`insight-${layer.dataset.domain}`).hidden = !active;
   }
   document.querySelector('.inspector-welcome').hidden = Boolean(selected);
-  for (const button of stepper.querySelectorAll('button')) button.setAttribute('aria-pressed', String(button.dataset.target === id));
-  document.querySelectorAll('.insight-navigation').forEach(el=>el.remove());
-  if (selected) {
-    const steps=[...stepper.querySelectorAll('button')];
-    const index=steps.findIndex(button=>button.dataset.target===id);
-    if(index>=0 && !stepper.hidden){
-      const nav=document.createElement('div');nav.className='insight-navigation';
-      for(const offset of [-1,1]){
-        const target=steps[index+offset];if(!target)continue;
-        const button=document.createElement('button');button.type='button';
-        button.textContent=(offset<0?'← ':'')+target.querySelector('strong').textContent+(offset>0?' →':'');
-        button.addEventListener('click',()=>inspectDomain(target.dataset.target,true));nav.append(button);
-      }
-      const panel=document.getElementById(`insight-${id}`);panel.insertBefore(nav,panel.querySelector('.insight-close'));
-    }
+  if (currentSteps.length && !stepper.hidden) {
+    const index=currentSteps.findIndex(([target])=>String(target)===id);
+    if(index>=0){currentStep=index;renderJourney();}
   }
   if (moveFocus && selected) {
     const button = selected.querySelector('.layer-select');
@@ -68,28 +43,35 @@ for (const layer of layers) {
 }
 document.querySelector('.capability-inspector').addEventListener('keydown',event=>{if(event.key==='Escape' && selectedDomain!==null){const id=selectedDomain;inspectDomain(null);document.querySelector(`[data-layer="${id}"]`).focus({preventScroll:true});}});
 for (const button of document.querySelectorAll('.related-capability')) button.addEventListener('click', () => inspectDomain(button.dataset.target,true));
+let currentSteps=[],currentStep=0;
+function renderJourney(){
+  stepper.replaceChildren();
+  const progress=document.createElement('div');progress.className='journey-progress';
+  progress.setAttribute('role','progressbar');progress.setAttribute('aria-valuemin','1');progress.setAttribute('aria-valuemax',String(currentSteps.length));progress.setAttribute('aria-valuenow',String(currentStep+1));progress.setAttribute('aria-label',stepper.dataset.label);
+  const dial=document.createElement('span');dial.className='journey-dial';dial.textContent=String(currentStep+1).padStart(2,'0');dial.style.setProperty('--progress',`${(currentStep+1)/currentSteps.length*100}%`);progress.append(dial);
+  const copy=document.createElement('div');copy.className='journey-current';
+  const kicker=document.createElement('small');kicker.textContent=`${stepper.dataset.label} / ${currentStep+1} — ${currentSteps.length}`;
+  const title=document.createElement('strong');title.textContent=currentSteps[currentStep][1];copy.append(kicker,title);
+  const controls=document.createElement('div');controls.className='journey-controls';
+  for(const offset of [-1,1]){
+    const button=document.createElement('button');button.type='button';button.textContent=offset<0?`← ${stepper.dataset.prev}`:`${stepper.dataset.next} →`;button.disabled=currentStep+offset<0||currentStep+offset>=currentSteps.length;
+    button.addEventListener('click',()=>{currentStep+=offset;inspectDomain(String(currentSteps[currentStep][0]));const nextFocus=stepper.querySelector(offset<0?'.journey-controls button:first-child':'.journey-controls button:last-child');(nextFocus.disabled?stepper.querySelector('.journey-controls button:not(:disabled)'):nextFocus).focus({preventScroll:true});});controls.append(button);
+  }
+  stepper.append(progress,copy,controls);
+}
 for (const journey of journeys) {
-  journey.addEventListener('click', () => {
+  journey.addEventListener('click',()=>{
     document.querySelector('.overview-choice').setAttribute('aria-pressed','false');
-    stepper.hidden=false;
-    document.getElementById('journey-description').hidden=false;
-    inspectDomain(null);
-    for (const item of journeys) item.setAttribute('aria-pressed', String(item === journey));
-    const domains = journey.dataset.domains.split(',');
-    for (const layer of layers) layer.classList.toggle('in-path', domains.includes(layer.dataset.domain));
-    document.querySelectorAll('.iso-map-svg .scene-edge').forEach(edge=>edge.classList.toggle('in-path',domains.includes(edge.dataset.from)&&domains.includes(edge.dataset.to)));
-    document.getElementById('journey-description').textContent = journey.dataset.description;
-    stepper.replaceChildren();
-    JSON.parse(journey.dataset.steps).forEach(([id,label],index)=>{
-      const button = document.createElement('button');
-      button.type='button';button.dataset.target=String(id);button.setAttribute('aria-pressed','false');button.setAttribute('aria-controls',`insight-${id}`);
-      const number=document.createElement('span');number.textContent=String(index+1).padStart(2,'0');
-      const title=document.createElement('strong');title.textContent=label;
-      button.append(number,title);button.addEventListener('click',()=>inspectDomain(String(id),true));stepper.append(button);
-    });
+    stepper.hidden=false;document.getElementById('journey-description').hidden=false;
+    journeys.forEach(item=>item.setAttribute('aria-pressed',String(item===journey)));
+    const domains=journey.dataset.domains.split(',');layers.forEach(layer=>layer.classList.toggle('in-path',domains.includes(layer.dataset.domain)));
+    document.getElementById('journey-description').textContent=journey.dataset.description;
+    currentSteps=JSON.parse(journey.dataset.steps);currentStep=0;
+    inspectDomain(String(currentSteps[0][0]));
   });
 }
 function resetArchitecture() {
+  currentSteps=[];
   inspectDomain(null);
   journeys.forEach(button=>button.setAttribute('aria-pressed','false'));
   layers.forEach(layer=>layer.classList.remove('in-path'));
@@ -126,7 +108,7 @@ if (ecoPanel) {
     group.replaceChildren();
     paths = edges.map(([from,to])=>{
       const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-      const x1=coords[from][0]*6,y1=coords[from][1]*4.4-45,x2=coords[to][0]*6,y2=coords[to][1]*4.4-45,m=(x1+x2)/2;
+      const x1=coords[from][0]*6,y1=coords[from][1]*4.4-22,x2=coords[to][0]*6,y2=coords[to][1]*4.4-22,m=(x1+x2)/2;
       path.setAttribute('d',`M${x1} ${y1} C${m} ${y1},${m} ${y2},${x2} ${y2}`);
       path.dataset.from=from; path.dataset.to=to;
       group.append(path);

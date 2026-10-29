@@ -20,7 +20,7 @@ python3 scripts/check.py
 python3 -m http.server 8080 --directory docs
 ```
 
-设计改动先在 `design/*` 分支完成，发布独立预览供对比，确认采用后才合入 `main` 并发布。版本、预览与回退流程见 [RELEASING.md](RELEASING.md)。不需要手动操作服务器。
+完成构建、检查及浏览器验证后，直接提交并推送 `main` 发布最新官网；不再要求设计预览确认。保留 Git 历史用于回退，详见 [RELEASING.md](RELEASING.md)。
 
 新增语言时复制一个内容 JSON，修改 `lang`、`name`、`path` 并完整翻译字段。构建脚本自动增加页面、语言导航及站点地图。项目名和 GitHub 地址保持一致，建设方向与已交付能力应明确区分。
 
@@ -30,7 +30,7 @@ Git 提交遵循维护者的 GitHub 专用邮箱配置。不写入凭据、私�
 
 官网架构图是组织的生态目标视图，不是某个产品的部署结构，也不代表相关能力已交付。内容由各语言 JSON 的 `layers` 与 `architecture*` 字段维护。
 
-网页图可点击能力图形或标题查看职责、输入输出与协作关系；选中能力后突出相关路径，其余能力淡出。场景导航支持逐步探索。`scripts/architecture.py` 在构建时同步导出中英文 SVG，可下载用于组织介绍。`scripts/scene.py` 统一维护两块图示的能力形态、坐标与基础连接；`docs/assets/landscape.css` 负责呈现。架构调整后同步检查网页图和 SVG 的标签、关系及规划说明。
+能力地图以应用、执行、知识复用和治理四个层次组织；点击能力标题查看职责与输入输出，关联能力同步高亮。场景演示支持前进、后退和进度指示。`scripts/architecture.py` 在构建时同步导出中英文 SVG，可下载用于组织介绍。`scripts/scene.py` 统一维护两块图示的能力形态、坐标与基础连接；`docs/assets/site.css` 负责呈现。架构调整后同步检查网页图和 SVG 的标签、关系及规划说明。
 
 ## 生态探索与组织愿景
 

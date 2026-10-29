@@ -508,5 +508,14 @@
       "KNOWLEDGE & ASSETS",
       "GOVERNANCE"
     ]
-  }
+  },
+  "matrixLabels": [
+    "APPLICATIONS",
+    "BUILD & EXECUTE",
+    "KNOWLEDGE & REUSE",
+    "CROSS-CUTTING",
+    "Previous",
+    "Next",
+    "CURRENT STAGE"
+  ]
 }
