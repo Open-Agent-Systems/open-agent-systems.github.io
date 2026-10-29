@@ -180,6 +180,7 @@ menuToggle.hidden = false;
 function setMenuOpen(open, returnFocus = false) {
   siteHeader.classList.toggle('menu-open', open);
   menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.querySelector('span').textContent = open ? menuToggle.dataset.closeLabel : menuToggle.dataset.openLabel;
   if (returnFocus) menuToggle.focus();
   updateSectionNavigation();
 }
@@ -194,3 +195,7 @@ document.addEventListener('click', event => {
   if (!siteHeader.contains(event.target) && siteHeader.classList.contains('menu-open')) setMenuOpen(false);
 });
 mobileNavigation.addEventListener('change', () => setMenuOpen(false));
+
+siteHeader.addEventListener('focusout', event => {
+  if (siteHeader.classList.contains('menu-open') && !siteHeader.contains(event.relatedTarget)) setMenuOpen(false);
+});

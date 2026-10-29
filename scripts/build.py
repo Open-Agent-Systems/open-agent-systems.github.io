@@ -23,6 +23,7 @@ for d in items:
         languages += f'<a href="{x["path"]}" lang="{x["lang"]}" hreflang="{x["lang"]}"{current}>{esc(x["name"])}</a>'
     nav = ''.join(f'<a href="#{anchor}">{esc(label)}</a>' for anchor,label in zip(['vision','architecture','direction','participate'],d['nav']))
     menu_label = '菜单' if d['lang'] == 'zh-CN' else 'Menu'
+    close_menu_label = '关闭' if d['lang'] == 'zh-CN' else 'Close'
 
     areas = ''.join(f'<div><dt>{esc(a[0])}</dt><dd>{esc(a[1])}</dd></div>' for a in d['areas'])
     principles = ''.join(f'<li><strong>{esc(a[0])}</strong><span>{esc(a[1])}</span></li>' for a in d['principles'])
@@ -77,7 +78,7 @@ for d in items:
 <a class="skip" href="#main">{d['skip']}</a>
 <header class="site-header wrap">
 <a class="brand" href="{d['path']}" aria-label="Open Agent Systems"><img src="/assets/oas-wordmark-symbol.svg" width="55" height="36" alt=""><span>Open Agent Systems</span></a>
-<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="header-menu" hidden><span>{menu_label}</span><span class="menu-mark" aria-hidden="true"></span></button>
+<button class="menu-toggle" data-open-label="{menu_label}" data-close-label="{close_menu_label}" type="button" aria-expanded="false" aria-controls="header-menu" hidden><span>{menu_label}</span><span class="menu-mark" aria-hidden="true"></span></button>
 <div class="header-menu" id="header-menu"><nav class="header-nav" aria-label="Site">{nav}</nav><div class="header-actions"><nav class="languages" aria-label="{esc(d['language'])}">{languages}</nav><a class="header-github" href="{ORG}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.15 1.72 1.15 1 1.72 2.62 1.22 3.26.94.1-.73.4-1.22.71-1.5-2.49-.28-5.11-1.24-5.11-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.53.23 2.67.11 2.95.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.1c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg><span>GitHub</span></a></div></div>
 </header>
 <main id="main" class="wrap">
