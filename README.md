@@ -20,7 +20,7 @@ python3 scripts/check.py
 python3 -m http.server 8080 --directory docs
 ```
 
-确认桌面、手机布局、语言切换及链接后，提交源文件和生成文件并推送，GitHub Pages 自动部署。不需要手动操作服务器。
+设计改动先在 `design/*` 分支完成，发布独立预览供对比，确认采用后才合入 `main` 并发布。版本、预览与回退流程见 [RELEASING.md](RELEASING.md)。不需要手动操作服务器。
 
 新增语言时复制一个内容 JSON，修改 `lang`、`name`、`path` 并完整翻译字段。构建脚本自动增加页面、语言导航及站点地图。项目名和 GitHub 地址保持一致，建设方向与已交付能力应明确区分。
 

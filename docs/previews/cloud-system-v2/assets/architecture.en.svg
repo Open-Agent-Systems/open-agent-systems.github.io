@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1560" viewBox="0 0 1600 1560" role="img" aria-labelledby="title desc">
+<title id="title">The shared foundations of AI-native systems.</title>
+<desc id="desc">Ecosystem plan and conceptual interaction. Intended capabilities and relationships, not shipped products or live telemetry.</desc>
+<style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#354b57}.scene-field{fill:#e8eef2;opacity:.3}.scene-boundary{fill:none;stroke:#c5a48f;stroke-dasharray:3 9}.scene-symbol{fill:#f8fafb;stroke:#688393;stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round}.symbol-core,.symbol-volume{fill:#e4edf1}.symbol-halo{fill:none;stroke:#c6d5de;stroke-dasharray:2 7}.scene-edge{fill:none;stroke:#bdcdd6;stroke-width:1.2}</style>
+<rect width="1600" height="1560" fill="#f8fafb"/>
+<text x="60" y="60" font-size="18" text-anchor="start">OPEN AGENT SYSTEMS / CAPABILITY MAP</text>
+<text x="60" y="115" font-size="34" text-anchor="start">The shared foundations of AI-native systems.</text>
+<text x="60" y="190" font-size="18" text-anchor="start">APPLICATION VALUE</text>
+<text x="430" y="190" font-size="23" text-anchor="start">Software delivery</text>
+<text x="790" y="190" font-size="23" text-anchor="start">Intelligent operations</text>
+<text x="1150" y="190" font-size="23" text-anchor="start">Business automation</text>
+<g transform="translate(60 250) scale(1.48 1.3)"><path class="scene-field" d="M80 175Q480 70 920 170V390Q500 570 80 390Z"/><path class="scene-boundary" d="M170 145Q520-65 900 145M910 170Q1050 350 900 510M135 500Q410 605 760 540"/><path class="scene-edge" data-from="7" data-to="0" d="M150.0 52.400000000000006C155.0 52.400000000000006,155.0 244.60000000000002,160.0 244.60000000000002"/><path class="scene-edge" data-from="0" data-to="1" d="M160.0 244.60000000000002C320.0 244.60000000000002,320.0 244.60000000000002,480.0 244.60000000000002"/><path class="scene-edge" data-from="1" data-to="2" d="M480.0 244.60000000000002C630.0 244.60000000000002,630.0 244.60000000000002,780.0 244.60000000000002"/><path class="scene-edge" data-from="3" data-to="1" d="M320.0 455.4C400.0 455.4,400.0 244.60000000000002,480.0 244.60000000000002"/><path class="scene-edge" data-from="1" data-to="4" d="M480.0 244.60000000000002C540.0 244.60000000000002,540.0 455.4,600.0 455.4"/><path class="scene-edge" data-from="2" data-to="6" d="M780.0 244.60000000000002C825.0 244.60000000000002,825.0 455.4,870.0 455.4"/><path class="scene-edge" data-from="6" data-to="1" d="M870.0 455.4C675.0 455.4,675.0 244.60000000000002,480.0 244.60000000000002"/><path class="scene-edge" data-from="4" data-to="3" d="M600.0 455.4C460.0 455.4,460.0 455.4,320.0 455.4"/><path class="scene-edge" data-from="5" data-to="2" d="M520.0 52.400000000000006C650.0 52.400000000000006,650.0 244.60000000000002,780.0 244.60000000000002"/><g class="scene-object" data-object="0"><g class="scene-symbol" transform="translate(160.0 244.60000000000002)"><g class="scene-glyph"><g transform="scale(.30)" stroke-width="4"><path d="M-54-24H-30Q-16-24-16-10V0H28M-54 0H28M-54 24H-30Q-16 24-16 10V0"/><circle cx="-54" cy="-24" r="5"/><circle cx="-54" cy="0" r="5"/><circle cx="-54" cy="24" r="5"/><path d="M12-17L34 0 12 17"/></g></g></g></g><g class="scene-object" data-object="1"><g class="scene-symbol" transform="translate(480.0 244.60000000000002)"><g class="scene-glyph"><g transform="scale(.30)" stroke-width="4"><circle class="symbol-halo" r="49"/><circle class="symbol-core" r="23"/><path d="M-18-16L-35-31M18-16L35-31M0 23V42"/><circle cx="-39" cy="-35" r="9"/><circle cx="39" cy="-35" r="9"/><circle cy="49" r="9"/><path d="M-7 0H7M0-7V7"/></g></g></g></g><g class="scene-object" data-object="2"><g class="scene-symbol" transform="translate(780.0 244.60000000000002)"><g class="scene-glyph"><g transform="scale(.30)" stroke-width="4"><path class="symbol-volume" d="M0-40L48-16V30L0 53-48 30V-16Z"/><path d="M-48-16L0 8 48-16M0 8V53"/><path d="M-16-7L-4 0-16 7M6 10H22"/></g></g></g></g><g class="scene-object" data-object="3"><g class="scene-symbol" transform="translate(320.0 455.4)"><g class="scene-glyph"><g transform="scale(.30)" stroke-width="4"><ellipse class="symbol-volume" rx="43" ry="13" cy="-21"/><path d="M-43-21V18C-43 36 43 36 43 18V-21M-43-2C-43 16 43 16 43-2M-43 16C-43 34 43 34 43 16"/></g></g></g></g><g class="scene-object" data-object="4"><g class="scene-symbol" transform="translate(600.0 455.4)"><g class="scene-glyph"><g transform="scale(.30)" stroke-width="4"><path class="symbol-volume" d="M-36-12L0-33 40-12 4 9Z"/><path d="M-36 0L4 22 40 0M-36 14L4 36 40 14"/><circle cx="49" cy="-29" r="10"/><path d="M45-29H53M49-33V-25"/></g></g></g></g><g class="scene-object" data-object="5"><g class="scene-symbol" transform="translate(520.0 52.400000000000006)"><g class="scene-glyph"><g transform="scale(.30)" stroke-width="4"><path class="symbol-volume" d="M0-29L24-20V0Q24 19 0 30Q-24 19-24 0V-20Z"/><path d="M-10 0L-2 8 12-9"/></g></g></g></g><g class="scene-object" data-object="6"><g class="scene-symbol" transform="translate(870.0 455.4)"><g class="scene-glyph"><g transform="scale(.30)" stroke-width="4"><path d="M-40 23H42M-40 23V-26M-31 11L-12-9 5 0 27-24"/><circle cx="27" cy="-24" r="5"/></g></g></g></g><g class="scene-object" data-object="7"><g class="scene-symbol" transform="translate(150.0 52.400000000000006)"><g class="scene-glyph"><g transform="scale(.30)" stroke-width="4"><path d="M-22-18L-44 0-22 18M22-18L44 0 22 18M9-25L-9 25"/></g></g></g></g>
+<text x="160" y="286.6" font-size="13" text-anchor="middle">01 / Models &amp; gateways</text>
+<text x="480" y="286.6" font-size="13" text-anchor="middle">02 / Agent orchestration</text>
+<text x="780" y="286.6" font-size="13" text-anchor="middle">03 / Runtimes &amp; sandboxes</text>
+<text x="320" y="497.40000000000003" font-size="13" text-anchor="middle">04 / Context, state &amp; knowledge</text>
+<text x="600" y="497.40000000000003" font-size="13" text-anchor="middle">05 / AI assets &amp; supply chain</text>
+<text x="520" y="94.4" font-size="13" text-anchor="middle">06 / Security &amp; governance</text>
+<text x="870" y="497.40000000000003" font-size="13" text-anchor="middle">07 / Evaluation &amp; improvement</text>
+<text x="150" y="94.4" font-size="13" text-anchor="middle">08 / Developer experience</text>
+</g>
+<text x="60" y="1085" font-size="20" text-anchor="start">OPEN INTEROPERABILITY</text>
+<text x="430" y="1085" font-size="17" text-anchor="start">Open interfaces</text>
+<text x="700" y="1085" font-size="17" text-anchor="start">Capability contracts</text>
+<text x="970" y="1085" font-size="17" text-anchor="start">Compatibility</text>
+<text x="1240" y="1085" font-size="17" text-anchor="start">Community</text>
+<text x="60" y="1150" font-size="17" text-anchor="start">01 / Models &amp; gateways</text>
+<text x="60" y="1177" font-size="14" text-anchor="start">Model proxy</text>
+<text x="60" y="1200" font-size="14" text-anchor="start">Routing &amp; fallback</text>
+<text x="60" y="1223" font-size="14" text-anchor="start">Quotas &amp; metering</text>
+<text x="440" y="1150" font-size="17" text-anchor="start">02 / Agent orchestration</text>
+<text x="440" y="1177" font-size="14" text-anchor="start">Task orchestration</text>
+<text x="440" y="1200" font-size="14" text-anchor="start">Agent collaboration</text>
+<text x="440" y="1223" font-size="14" text-anchor="start">Human oversight</text>
+<text x="820" y="1150" font-size="17" text-anchor="start">03 / Runtimes &amp; sandboxes</text>
+<text x="820" y="1177" font-size="14" text-anchor="start">Execution isolation</text>
+<text x="820" y="1200" font-size="14" text-anchor="start">Scheduling &amp; recovery</text>
+<text x="820" y="1223" font-size="14" text-anchor="start">Lifecycle governance</text>
+<text x="1200" y="1150" font-size="17" text-anchor="start">04 / Context, state &amp; knowledge</text>
+<text x="1200" y="1177" font-size="14" text-anchor="start">Context engineering</text>
+<text x="1200" y="1200" font-size="14" text-anchor="start">Checkpoints</text>
+<text x="1200" y="1223" font-size="14" text-anchor="start">Memory &amp; knowledge</text>
+<text x="60" y="1295" font-size="17" text-anchor="start">05 / AI assets &amp; supply chain</text>
+<text x="60" y="1322" font-size="14" text-anchor="start">Registry &amp; discovery</text>
+<text x="60" y="1345" font-size="14" text-anchor="start">Versioning &amp; delivery</text>
+<text x="60" y="1368" font-size="14" text-anchor="start">Provenance &amp; dependencies</text>
+<text x="440" y="1295" font-size="17" text-anchor="start">06 / Security &amp; governance</text>
+<text x="440" y="1322" font-size="14" text-anchor="start">Identity &amp; access</text>
+<text x="440" y="1345" font-size="14" text-anchor="start">Policy &amp; approval</text>
+<text x="440" y="1368" font-size="14" text-anchor="start">Budgets &amp; audit</text>
+<text x="820" y="1295" font-size="17" text-anchor="start">07 / Evaluation &amp; improvement</text>
+<text x="820" y="1322" font-size="14" text-anchor="start">Traces &amp; replay</text>
+<text x="820" y="1345" font-size="14" text-anchor="start">Quality &amp; cost</text>
+<text x="820" y="1368" font-size="14" text-anchor="start">Validation &amp; release</text>
+<text x="1200" y="1295" font-size="17" text-anchor="start">08 / Developer experience</text>
+<text x="1200" y="1322" font-size="14" text-anchor="start">SDKs &amp; CLIs</text>
+<text x="1200" y="1345" font-size="14" text-anchor="start">Debugging &amp; delivery</text>
+<text x="1200" y="1368" font-size="14" text-anchor="start">Applied practice</text>
+<text x="60" y="1455" font-size="17" text-anchor="start">CROSS-ENVIRONMENT VISION</text>
+<text x="450" y="1455" font-size="18" text-anchor="start">Local</text>
+<text x="700" y="1455" font-size="18" text-anchor="start">Private cloud</text>
+<text x="950" y="1455" font-size="18" text-anchor="start">Public cloud</text>
+<text x="1200" y="1455" font-size="18" text-anchor="start">Edge</text>
+<text x="60" y="1490" font-size="14" text-anchor="start">Shared foundations</text>
+<text x="60" y="1530" font-size="14" text-anchor="start">Ecosystem plan: intended capabilities, not a claim of completed delivery.</text>
+</svg>
