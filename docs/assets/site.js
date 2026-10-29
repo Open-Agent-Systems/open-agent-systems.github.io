@@ -150,3 +150,23 @@ if (ecoPanel) {
   new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;schedule();},{threshold:.15}).observe(ecoPanel);
   draw();schedule();
 }
+
+// Reflect the reader's location without moving focus or changing navigation history.
+const sectionLinks = [...document.querySelectorAll('.header-nav a')];
+const navSections = sectionLinks.map(link => document.querySelector(link.getAttribute('href')));
+let navFrame = false;
+function updateSectionNavigation() {
+  const threshold = document.querySelector('.site-header').getBoundingClientRect().bottom + 50;
+  let active = -1;
+  navSections.forEach((section, index) => { if (section.getBoundingClientRect().top <= threshold) active = index; });
+  sectionLinks.forEach((link, index) => {
+    if (index === active) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+  navFrame = false;
+}
+addEventListener('scroll', () => {
+  if (!navFrame) { navFrame = true; requestAnimationFrame(updateSectionNavigation); }
+}, {passive: true});
+addEventListener('resize', updateSectionNavigation);
+updateSectionNavigation();

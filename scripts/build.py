@@ -21,7 +21,7 @@ for d in items:
     for x in items:
         current = ' aria-current="page"' if x['lang'] == d['lang'] else ''
         languages += f'<a href="{x["path"]}" lang="{x["lang"]}" hreflang="{x["lang"]}"{current}>{esc(x["name"])}</a>'
-    nav = ''.join(f'<a href="#{anchor}">{esc(label)}</a>' for anchor,label in zip(['vision','architecture','direction','participate'],d['nav']))
+    nav = ''.join(f'<a href="#{anchor}">{icon(kind, "nav-icon")}<span>{esc(label)}</span></a>' for anchor,label,kind in zip(['vision','architecture','direction','participate'],d['nav'],['vision','assets','direction','community']))
     areas = ''.join(f'<div><dt>{esc(a[0])}</dt><dd>{esc(a[1])}</dd></div>' for a in d['areas'])
     principles = ''.join(f'<li><strong>{esc(a[0])}</strong><span>{esc(a[1])}</span></li>' for a in d['principles'])
     steps = ''.join(f'<button type="button" class="direction-choice" aria-pressed="{str(i==0).lower()}" aria-controls="direction-description" data-description="{esc(a[1])}"><span>0{i+1}</span><strong>{esc(a[0])}</strong><span aria-hidden="true">↗</span></button>' for i,a in enumerate(d['steps']))
