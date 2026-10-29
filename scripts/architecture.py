@@ -5,13 +5,13 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 for file in (ROOT/'content').glob('*.json'):
  d=json.loads(file.read_text());st=d['strategic']
- parts=['<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1160" viewBox="0 0 1600 1160" role="img" aria-labelledby="title desc">',f'<title id="title">{e(d["architectureTitle"])}</title>',f'<desc id="desc">{e(d["architectureNote"])}</desc>','<rect width="1600" height="1160" fill="#f7f5ef"/><style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#292824}</style>']
+ parts=['<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1160" viewBox="0 0 1600 1160" role="img" aria-labelledby="title desc">',f'<title id="title">{e(d["architectureTitle"])}</title>',f'<desc id="desc">{e(d["architectureNote"])}</desc>','<rect width="1600" height="1160" fill="#fafafa"/><style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#252729}</style>']
  def text(x,y,t,size=18):parts.append(f'<text x="{x}" y="{y}" font-size="{size}">{e(t)}</text>')
  text(60,60,'OPEN AGENT SYSTEMS / SYSTEM ARCHITECTURE',18);text(60,120,d['architectureTitle'],34)
  text(60,195,st['outcome'],18)
  for i,t in enumerate(st['apps']):text(420+i*360,195,t,22)
  for row,ids in enumerate([[7],[0,1,2],[3,4],[5,6]]):
-  y=245+row*175;parts.append(f'<path d="M60 {y}H1540" stroke="#d8d3c8"/>');text(60,y+47,d['matrixLabels'][row],16)
+  y=245+row*175;parts.append(f'<path d="M60 {y}H1540" stroke="#dadddf"/>');text(60,y+47,d['matrixLabels'][row],16)
   width=1120/len(ids)
   for j,i in enumerate(ids):
    x=390+j*width;text(x,y+47,f'0{i+1} / {d["layers"][i][0]}',20)

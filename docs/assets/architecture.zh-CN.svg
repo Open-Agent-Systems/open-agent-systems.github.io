@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1160" viewBox="0 0 1600 1160" role="img" aria-labelledby="title desc">
 <title id="title">构建 AI 原生系统的共同基础。</title>
 <desc id="desc">生态规划与概念交互 · 展示拟建设的能力及协作关系，不代表已交付产品或真实运行数据。</desc>
-<rect width="1600" height="1160" fill="#f7f5ef"/><style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#292824}</style>
+<rect width="1600" height="1160" fill="#fafafa"/><style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#252729}</style>
 <text x="60" y="60" font-size="18">OPEN AGENT SYSTEMS / SYSTEM ARCHITECTURE</text>
 <text x="60" y="120" font-size="34">构建 AI 原生系统的共同基础。</text>
 <text x="60" y="195" font-size="18">应用与业务价值</text>
 <text x="420" y="195" font-size="22">研发交付</text>
 <text x="780" y="195" font-size="22">智能运维</text>
 <text x="1140" y="195" font-size="22">业务自动化</text>
-<path d="M60 245H1540" stroke="#d8d3c8"/>
+<path d="M60 245H1540" stroke="#dadddf"/>
 <text x="60" y="292" font-size="16">面向应用</text>
 <text x="390.0" y="292" font-size="20">08 / 开发体验与应用</text>
 <text x="390.0" y="325" font-size="16">SDK 与 CLI</text>
 <text x="390.0" y="349" font-size="16">调试与交付</text>
 <text x="390.0" y="373" font-size="16">场景实践</text>
-<path d="M60 420H1540" stroke="#d8d3c8"/>
+<path d="M60 420H1540" stroke="#dadddf"/>
 <text x="60" y="467" font-size="16">构建与执行</text>
 <text x="390.0" y="467" font-size="20">01 / 模型服务与网关</text>
 <text x="390.0" y="500" font-size="16">模型代理</text>
@@ -28,7 +28,7 @@
 <text x="1136.6666666666665" y="500" font-size="16">环境隔离</text>
 <text x="1136.6666666666665" y="524" font-size="16">调度与恢复</text>
 <text x="1136.6666666666665" y="548" font-size="16">生命周期治理</text>
-<path d="M60 595H1540" stroke="#d8d3c8"/>
+<path d="M60 595H1540" stroke="#dadddf"/>
 <text x="60" y="642" font-size="16">知识与复用</text>
 <text x="390.0" y="642" font-size="20">04 / 上下文、状态与知识</text>
 <text x="390.0" y="675" font-size="16">上下文工程</text>
@@ -38,7 +38,7 @@
 <text x="950.0" y="675" font-size="16">注册与发现</text>
 <text x="950.0" y="699" font-size="16">版本与分发</text>
 <text x="950.0" y="723" font-size="16">来源与依赖</text>
-<path d="M60 770H1540" stroke="#d8d3c8"/>
+<path d="M60 770H1540" stroke="#dadddf"/>
 <text x="60" y="817" font-size="16">贯穿全程</text>
 <text x="390.0" y="817" font-size="20">06 / 安全与治理</text>
 <text x="390.0" y="850" font-size="16">身份与授权</text>

@@ -170,3 +170,27 @@ addEventListener('scroll', () => {
 }, {passive: true});
 addEventListener('resize', updateSectionNavigation);
 updateSectionNavigation();
+
+// Mobile navigation keeps ordinary links usable when JavaScript is unavailable.
+const siteHeader = document.querySelector('.site-header');
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileNavigation = matchMedia('(max-width:960px)');
+siteHeader.classList.add('nav-ready');
+menuToggle.hidden = false;
+function setMenuOpen(open, returnFocus = false) {
+  siteHeader.classList.toggle('menu-open', open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+  if (returnFocus) menuToggle.focus();
+  updateSectionNavigation();
+}
+menuToggle.addEventListener('click', () => setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true'));
+siteHeader.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && siteHeader.classList.contains('menu-open')) {setMenuOpen(false, true);}
+});
+sectionLinks.forEach(link => link.addEventListener('click', () => {
+  if (mobileNavigation.matches) setMenuOpen(false, true);
+}));
+document.addEventListener('click', event => {
+  if (!siteHeader.contains(event.target) && siteHeader.classList.contains('menu-open')) setMenuOpen(false);
+});
+mobileNavigation.addEventListener('change', () => setMenuOpen(false));

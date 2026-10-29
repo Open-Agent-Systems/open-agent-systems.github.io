@@ -33,7 +33,7 @@ def scene_art(hero=False):
     edges = [(0,1),(1,2),(3,1),(1,4),(4,5)] if hero else [(7,0),(0,1),(1,2),(3,1),(1,4),(2,6),(6,1),(4,3),(5,2)]
     parts = []
     if hero:
-        parts.append('<defs><radialGradient id="pearl" cx="30%" cy="20%" r="85%"><stop stop-color="#ffffff"/><stop offset=".7" stop-color="#e5e0d5"/><stop offset="1" stop-color="#b7ad9c"/></radialGradient><radialGradient id="core" cx="30%" cy="20%" r="90%"><stop stop-color="#7c796e"/><stop offset=".5" stop-color="#49473f"/><stop offset="1" stop-color="#262620"/></radialGradient><filter id="soft"><feGaussianBlur stdDeviation="8"/></filter></defs><ellipse cx="300" cy="270" rx="180" ry="45" fill="#a39886" opacity=".12" filter="url(#soft)"/><g fill="none" stroke="#a69a86" stroke-width=".8" opacity=".65"><ellipse cx="300" cy="220" rx="235" ry="90" transform="rotate(-16 300 220)"/><ellipse cx="300" cy="220" rx="202" ry="100" transform="rotate(22 300 220)"/></g>')
+        parts.append('<defs><radialGradient id="pearl" cx="30%" cy="20%" r="85%"><stop stop-color="#ffffff"/><stop offset=".7" stop-color="#f0f1f2"/><stop offset="1" stop-color="#d3d6d8"/></radialGradient><radialGradient id="core" cx="30%" cy="20%" r="90%"><stop stop-color="#555b60"/><stop offset=".5" stop-color="#363b3f"/><stop offset="1" stop-color="#292d30"/></radialGradient><filter id="soft"><feGaussianBlur stdDeviation="8"/></filter></defs><ellipse cx="300" cy="270" rx="180" ry="45" fill="#a6abaf" opacity=".05" filter="url(#soft)"/><g fill="none" stroke="#a6abaf" stroke-width=".8" opacity=".65"><ellipse cx="300" cy="220" rx="235" ry="90" transform="rotate(-16 300 220)"/><ellipse cx="300" cy="220" rx="202" ry="100" transform="rotate(22 300 220)"/></g>')
     if hero:
         pass
     else:
@@ -42,8 +42,8 @@ def scene_art(hero=False):
         x1,y1=coords[a];x2,y2=coords[b];mid=(x1+x2)/2
         parts.append(f'<path class="scene-edge" data-from="{a}" data-to="{b}" d="M{x1} {y1}C{mid} {y1},{mid} {y2},{x2} {y2}"/>')
     if hero:
-        parts.append('<circle cx="300" cy="222" r="45" fill="url(#core)"/><circle cx="300" cy="222" r="50" fill="none" stroke="#d3cabc"/><text x="300" y="226" text-anchor="middle" fill="#ffffff" font-family="Arial,sans-serif" font-size="20" letter-spacing="2">OAS</text>')
+        parts.append('<circle cx="300" cy="222" r="45" fill="url(#core)"/><circle cx="300" cy="222" r="50" fill="none" stroke="#d3d6d8"/><text x="300" y="226" text-anchor="middle" fill="#ffffff" font-family="Arial,sans-serif" font-size="20" letter-spacing="2">OAS</text>')
     for i,((x,y),kind) in enumerate(zip(coords,kinds)):
-        lens = f'<ellipse cx="{x}" cy="{y+9}" rx="25" ry="19" fill="#8b806e" opacity=".2"/><circle cx="{x}" cy="{y}" r="25" fill="url(#pearl)" stroke="#c0b5a3"/>' if hero else ''
+        lens = f'<ellipse cx="{x}" cy="{y+9}" rx="25" ry="19" fill="#747b80" opacity=".1"/><circle cx="{x}" cy="{y}" r="25" fill="url(#pearl)" stroke="#bcc1c4"/>' if hero else ''
         parts.append(f'<g class="scene-object" data-object="{i}">{lens}{symbol(kind,x,y)}</g>')
     return ''.join(parts)
