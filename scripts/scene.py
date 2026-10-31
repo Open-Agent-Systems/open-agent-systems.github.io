@@ -1,6 +1,6 @@
 """Shared semantic artwork for the website and downloadable capability map."""
 MAP_POSITIONS = [(16,43),(48,43),(78,43),(32,77),(60,77),(52,12),(87,77),(15,12)]
-HERO_POSITIONS = [(15,32),(48,32),(81,32),(22,76),(51,76),(81,76)]
+HERO_POSITIONS = [(15,24),(48,24),(81,24),(22,80),(51,80),(81,80)]
 
 # A consistent 24-unit optical grid, shared by both interactive diagrams.
 ICONS = {
@@ -26,24 +26,36 @@ def symbol(kind, x, y):
 
 def scene_art(hero=False):
     positions = HERO_POSITIONS if hero else MAP_POSITIONS
-    height = 440 if hero else 620
-    width = 600 if hero else 1000
+    height, width = (440, 600) if hero else (620, 1000)
     kinds = ['model','agent','tools','knowledge','sandbox','assets'] if hero else ['model','agent','sandbox','knowledge','assets','governance','evaluation','developer']
     coords = [(x*width/100, y*height/100-22) for x,y in positions]
     edges = [(0,1),(1,2),(3,1),(1,4),(4,5)] if hero else [(7,0),(0,1),(1,2),(3,1),(1,4),(2,6),(6,1),(4,3),(5,2)]
-    parts = []
+    parts = ['''<defs>
+      <linearGradient id="node-face" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#526f99"/><stop offset=".5" stop-color="#243e62"/><stop offset="1" stop-color="#14243e"/></linearGradient>
+      <linearGradient id="node-depth" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#293f62"/><stop offset="1" stop-color="#091326"/></linearGradient>
+      <radialGradient id="core"><stop stop-color="#385883"/><stop offset=".65" stop-color="#1c3557"/><stop offset="1" stop-color="#0b1b32"/></radialGradient>
+      <radialGradient id="core-light"><stop stop-color="#70c9ff" stop-opacity=".18"/><stop offset="1" stop-color="#70c9ff" stop-opacity="0"/></radialGradient>
+    </defs>''']
     if hero:
-        parts.append('<defs><radialGradient id="pearl" cx="30%" cy="20%" r="85%"><stop stop-color="#ffffff"/><stop offset=".7" stop-color="#f0f1f2"/><stop offset="1" stop-color="#d3d6d8"/></radialGradient><radialGradient id="core" cx="30%" cy="20%" r="90%"><stop stop-color="#555b60"/><stop offset=".5" stop-color="#363b3f"/><stop offset="1" stop-color="#292d30"/></radialGradient><filter id="soft"><feGaussianBlur stdDeviation="8"/></filter></defs><ellipse cx="300" cy="270" rx="180" ry="45" fill="#a6abaf" opacity=".05" filter="url(#soft)"/><g fill="none" stroke="#a6abaf" stroke-width=".8" opacity=".65"><ellipse cx="300" cy="220" rx="235" ry="90" transform="rotate(-16 300 220)"/><ellipse cx="300" cy="220" rx="202" ry="100" transform="rotate(22 300 220)"/></g>')
-    if hero:
-        pass
-    else:
-        parts.append('<path class="scene-field" d="M80 175Q480 70 920 170V390Q500 570 80 390Z"/><path class="scene-boundary" d="M170 145Q520-65 900 145M910 170Q1050 350 900 510M135 500Q410 605 760 540"/>')
+        parts.append('''<circle cx="300" cy="222" r="128" fill="url(#core-light)"/>
+        <g fill="none" stroke="#5d8ac0" stroke-width=".8" opacity=".4">
+          <ellipse cx="300" cy="222" rx="240" ry="95" transform="rotate(-18 300 222)"/>
+          <ellipse cx="300" cy="222" rx="210" ry="100" transform="rotate(24 300 222)"/>
+          <circle cx="300" cy="222" r="72" stroke-dasharray="2 9"/>
+        </g>''')
     for a,b in edges:
         x1,y1=coords[a];x2,y2=coords[b];mid=(x1+x2)/2
         parts.append(f'<path class="scene-edge" data-from="{a}" data-to="{b}" d="M{x1} {y1}C{mid} {y1},{mid} {y2},{x2} {y2}"/>')
     if hero:
-        parts.append('<circle cx="300" cy="222" r="45" fill="url(#core)"/><circle cx="300" cy="222" r="50" fill="none" stroke="#d3d6d8"/><text x="300" y="226" text-anchor="middle" fill="#ffffff" font-family="Arial,sans-serif" font-size="20" letter-spacing="2">OAS</text>')
+        parts.append('''<rect x="251" y="182" width="98" height="98" rx="32" fill="#050d1c" stroke="#385575"/>
+          <rect x="251" y="173" width="98" height="98" rx="32" fill="url(#core)" stroke="#86b6df"/>
+          <path d="M266 194Q267 184 280 184H319" fill="none" stroke="#c2e8ff" stroke-opacity=".55"/>
+          <text x="300" y="224" text-anchor="middle" fill="#edf8ff" font-family="Arial,sans-serif" font-size="24" font-weight="600" letter-spacing="3">OAS</text>
+          <text x="300" y="245" text-anchor="middle" fill="#8cdff5" font-family="monospace" font-size="7" letter-spacing="2">CONNECTED</text>''')
     for i,((x,y),kind) in enumerate(zip(coords,kinds)):
-        lens = f'<ellipse cx="{x}" cy="{y+9}" rx="25" ry="19" fill="#747b80" opacity=".1"/><circle cx="{x}" cy="{y}" r="25" fill="url(#pearl)" stroke="#bcc1c4"/>' if hero else ''
+        lens = f'''<ellipse cx="{x}" cy="{y+34}" rx="30" ry="9" fill="#020916" opacity=".55"/>
+          <rect x="{x-28}" y="{y-20}" width="56" height="56" rx="18" fill="url(#node-depth)" stroke="#30496b"/>
+          <rect class="node-face" x="{x-28}" y="{y-28}" width="56" height="56" rx="18" fill="url(#node-face)" stroke="#7198bf"/>
+          <path d="M{x-20} {y-12}Q{x-20} {y-21} {x-10} {y-21}H{x+10}" fill="none" stroke="#ceeaff" stroke-opacity=".45"/>''' if hero else ''
         parts.append(f'<g class="scene-object" data-object="{i}">{lens}{symbol(kind,x,y)}</g>')
     return ''.join(parts)

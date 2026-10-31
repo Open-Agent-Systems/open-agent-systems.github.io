@@ -1,49 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1160" viewBox="0 0 1600 1160" role="img" aria-labelledby="title desc">
 <title id="title">The shared foundations of AI-native systems.</title>
 <desc id="desc">Ecosystem plan and conceptual interaction. Intended capabilities and relationships, not shipped products or live telemetry.</desc>
-<rect width="1600" height="1160" fill="#fafafa"/><style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#252729}</style>
+<rect width="1600" height="1160" fill="#080f20"/><style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#eef4ff}</style>
 <text x="60" y="60" font-size="18">OPEN AGENT SYSTEMS / SYSTEM ARCHITECTURE</text>
 <text x="60" y="120" font-size="34">The shared foundations of AI-native systems.</text>
 <text x="60" y="195" font-size="18">APPLICATION VALUE</text>
 <text x="420" y="195" font-size="22">Software delivery</text>
 <text x="780" y="195" font-size="22">Intelligent operations</text>
 <text x="1140" y="195" font-size="22">Business automation</text>
-<path d="M60 245H1540" stroke="#dadddf"/>
+<path d="M60 245H1540" stroke="#293951"/>
 <text x="60" y="292" font-size="16">APPLICATIONS</text>
+<rect x="374.0" y="257" width="1104.0" height="148" rx="12" fill="#111e35" stroke="#293951"/><path d="M390.0 258H1462.0" stroke="#baa6ff" stroke-width="2"/>
 <text x="390.0" y="292" font-size="20">08 / Developer experience</text>
 <text x="390.0" y="325" font-size="16">SDKs &amp; CLIs</text>
 <text x="390.0" y="349" font-size="16">Debugging &amp; delivery</text>
 <text x="390.0" y="373" font-size="16">Applied practice</text>
-<path d="M60 420H1540" stroke="#dadddf"/>
+<path d="M60 420H1540" stroke="#293951"/>
 <text x="60" y="467" font-size="16">BUILD &amp; EXECUTE</text>
+<rect x="374.0" y="432" width="357.3333333333333" height="148" rx="12" fill="#111e35" stroke="#293951"/><path d="M390.0 433H715.3333333333333" stroke="#74ddf4" stroke-width="2"/>
 <text x="390.0" y="467" font-size="20">01 / Models &amp; gateways</text>
 <text x="390.0" y="500" font-size="16">Model proxy</text>
 <text x="390.0" y="524" font-size="16">Routing &amp; fallback</text>
 <text x="390.0" y="548" font-size="16">Quotas &amp; metering</text>
+<rect x="747.3333333333333" y="432" width="357.3333333333333" height="148" rx="12" fill="#111e35" stroke="#293951"/><path d="M763.3333333333333 433H1088.6666666666665" stroke="#74ddf4" stroke-width="2"/>
 <text x="763.3333333333333" y="467" font-size="20">02 / Agent orchestration</text>
 <text x="763.3333333333333" y="500" font-size="16">Task orchestration</text>
 <text x="763.3333333333333" y="524" font-size="16">Agent collaboration</text>
 <text x="763.3333333333333" y="548" font-size="16">Human oversight</text>
+<rect x="1120.6666666666665" y="432" width="357.3333333333333" height="148" rx="12" fill="#111e35" stroke="#293951"/><path d="M1136.6666666666665 433H1461.9999999999998" stroke="#74ddf4" stroke-width="2"/>
 <text x="1136.6666666666665" y="467" font-size="20">03 / Runtimes &amp; sandboxes</text>
 <text x="1136.6666666666665" y="500" font-size="16">Execution isolation</text>
 <text x="1136.6666666666665" y="524" font-size="16">Scheduling &amp; recovery</text>
 <text x="1136.6666666666665" y="548" font-size="16">Lifecycle governance</text>
-<path d="M60 595H1540" stroke="#dadddf"/>
+<path d="M60 595H1540" stroke="#293951"/>
 <text x="60" y="642" font-size="16">KNOWLEDGE &amp; REUSE</text>
+<rect x="374.0" y="607" width="544.0" height="148" rx="12" fill="#111e35" stroke="#293951"/><path d="M390.0 608H902.0" stroke="#83e0c3" stroke-width="2"/>
 <text x="390.0" y="642" font-size="20">04 / Context, state &amp; knowledge</text>
 <text x="390.0" y="675" font-size="16">Context engineering</text>
 <text x="390.0" y="699" font-size="16">Checkpoints</text>
 <text x="390.0" y="723" font-size="16">Memory &amp; knowledge</text>
+<rect x="934.0" y="607" width="544.0" height="148" rx="12" fill="#111e35" stroke="#293951"/><path d="M950.0 608H1462.0" stroke="#83e0c3" stroke-width="2"/>
 <text x="950.0" y="642" font-size="20">05 / AI assets &amp; supply chain</text>
 <text x="950.0" y="675" font-size="16">Registry &amp; discovery</text>
 <text x="950.0" y="699" font-size="16">Versioning &amp; delivery</text>
 <text x="950.0" y="723" font-size="16">Provenance &amp; dependencies</text>
-<path d="M60 770H1540" stroke="#dadddf"/>
+<path d="M60 770H1540" stroke="#293951"/>
 <text x="60" y="817" font-size="16">CROSS-CUTTING</text>
+<rect x="374.0" y="782" width="544.0" height="148" rx="12" fill="#111e35" stroke="#293951"/><path d="M390.0 783H902.0" stroke="#a7beff" stroke-width="2"/>
 <text x="390.0" y="817" font-size="20">06 / Security &amp; governance</text>
 <text x="390.0" y="850" font-size="16">Identity &amp; access</text>
 <text x="390.0" y="874" font-size="16">Policy &amp; approval</text>
 <text x="390.0" y="898" font-size="16">Budgets &amp; audit</text>
+<rect x="934.0" y="782" width="544.0" height="148" rx="12" fill="#111e35" stroke="#293951"/><path d="M950.0 783H1462.0" stroke="#a7beff" stroke-width="2"/>
 <text x="950.0" y="817" font-size="20">07 / Evaluation &amp; improvement</text>
 <text x="950.0" y="850" font-size="16">Traces &amp; replay</text>
 <text x="950.0" y="874" font-size="16">Quality &amp; cost</text>
