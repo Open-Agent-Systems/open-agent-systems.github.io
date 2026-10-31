@@ -6,8 +6,9 @@
 
 ## 维护
 
-- `content/en.json`：英文内容，默认首页。
-- `content/zh-CN.json`：简体中文内容，访问路径 `/zh/`。
+- `content/zh-CN.json`：简体中文内容，默认首页 `/`。
+- `content/en.json`：英文内容，访问路径 `/en/`。
+- `/zh/` 保留为中文首页的兼容入口，规范地址指向 `/`；原有章节链接继续有效。
 - `scripts/build.py`：使用 Python 3 标准库生成各语言页面、站点地图与 404。
 - `docs/assets/`：样式与品牌图片，无第三方字体或运行依赖。
 - `docs/`：生成后的发布文件；GitHub Pages 从 `main` 分支的 `/docs` 发布。

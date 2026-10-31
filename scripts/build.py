@@ -12,6 +12,7 @@ BASE = 'https://open-agent-systems.github.io'
 ORG = 'https://github.com/Open-Agent-Systems'
 ISSUES = ORG + '/.github/issues'
 items = [json.loads(p.read_text()) for p in sorted((ROOT / 'content').glob('*.json'))]
+items.sort(key=lambda d: d['path'] != '/')
 assert len({d['path'] for d in items}) == len(items)
 assert len({d['lang'] for d in items}) == len(items)
 for d in items:
@@ -99,10 +100,13 @@ for d in items:
     dest = OUT / d['path'].strip('/') / 'index.html'
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(page)
+# Keep existing Chinese URLs and anchors working; canonical points to the default home.
+(OUT / 'zh').mkdir(parents=True, exist_ok=True)
+(OUT / 'zh' / 'index.html').write_text((OUT / 'index.html').read_text())
 (OUT / '.nojekyll').touch()
 (OUT / 'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+BASE+'/sitemap.xml\n')
 (OUT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>{BASE}{d["path"]}</loc></url>' for d in items)+'</urlset>\n')
-(OUT / '404.html').write_text('''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found · OAS</title><link rel="stylesheet" href="/assets/site.css"></head><body><main class="wrap error-page"><p class="label">404 · Open Agent Systems</p><h1>Page not found</h1><p>The page may have moved, or the address may be incorrect.</p><div class="links"><a href="/">English home</a><a href="/zh/" lang="zh-CN">返回中文首页</a></div></main></body></html>''')
+(OUT / '404.html').write_text('''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>页面未找到 · OAS</title><link rel="stylesheet" href="/assets/site.css"></head><body><main class="wrap error-page"><p class="label">404 · Open Agent Systems</p><h1>页面未找到</h1><p>页面可能已移动，或访问地址有误。</p><div class="links"><a href="/">返回中文首页</a><a href="/en/" lang="en">English home</a></div></main></body></html>''')
 print(f'[PASS] Built {len(items)} language pages, 404 and discovery files')
 
 runpy.run_path(str(ROOT / "scripts/architecture.py"))
