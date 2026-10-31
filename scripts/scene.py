@@ -1,6 +1,8 @@
 """Shared semantic artwork for the website and downloadable capability map."""
 MAP_POSITIONS = [(16,43),(48,43),(78,43),(32,77),(60,77),(52,12),(87,77),(15,12)]
-HERO_POSITIONS = [(15,32),(48,32),(81,32),(22,76),(51,76),(81,76)]
+HERO_POSITIONS = [(16,25),(50,25),(84,25),(16,78),(50,78),(84,78)]
+HERO_HEIGHT = 360
+HERO_NODE_OFFSET = 28
 
 # A consistent 24-unit optical grid, shared by both interactive diagrams.
 ICONS = {
@@ -25,25 +27,35 @@ def symbol(kind, x, y):
     return f'<g class="scene-symbol" transform="translate({x} {y})"><g class="scene-glyph" transform="translate(-12 -12)">{ICONS[kind]}</g></g>'
 
 def scene_art(hero=False):
-    positions = HERO_POSITIONS if hero else MAP_POSITIONS
-    height = 440 if hero else 620
-    width = 600 if hero else 1000
-    kinds = ['model','agent','tools','knowledge','sandbox','assets'] if hero else ['model','agent','sandbox','knowledge','assets','governance','evaluation','developer']
-    coords = [(x*width/100, y*height/100-22) for x,y in positions]
-    edges = [(0,1),(1,2),(3,1),(1,4),(4,5)] if hero else [(7,0),(0,1),(1,2),(3,1),(1,4),(2,6),(6,1),(4,3),(5,2)]
-    parts = []
     if hero:
-        parts.append('<defs><radialGradient id="pearl" cx="30%" cy="20%" r="85%"><stop stop-color="#ffffff"/><stop offset=".7" stop-color="#f0f1f2"/><stop offset="1" stop-color="#d3d6d8"/></radialGradient><radialGradient id="core" cx="30%" cy="20%" r="90%"><stop stop-color="#555b60"/><stop offset=".5" stop-color="#363b3f"/><stop offset="1" stop-color="#292d30"/></radialGradient><filter id="soft"><feGaussianBlur stdDeviation="8"/></filter></defs><ellipse cx="300" cy="270" rx="180" ry="45" fill="#a6abaf" opacity=".05" filter="url(#soft)"/><g fill="none" stroke="#a6abaf" stroke-width=".8" opacity=".65"><ellipse cx="300" cy="220" rx="235" ry="90" transform="rotate(-16 300 220)"/><ellipse cx="300" cy="220" rx="202" ry="100" transform="rotate(22 300 220)"/></g>')
-    if hero:
-        pass
-    else:
-        parts.append('<path class="scene-field" d="M80 175Q480 70 920 170V390Q500 570 80 390Z"/><path class="scene-boundary" d="M170 145Q520-65 900 145M910 170Q1050 350 900 510M135 500Q410 605 760 540"/>')
+        return balanced_hero_art()
+    kinds = ['model','agent','sandbox','knowledge','assets','governance','evaluation','developer']
+    coords = [(x*1000/100, y*620/100-22) for x,y in MAP_POSITIONS]
+    edges = [(7,0),(0,1),(1,2),(3,1),(1,4),(2,6),(6,1),(4,3),(5,2)]
+    parts = ['<path class="scene-field" d="M80 175Q480 70 920 170V390Q500 570 80 390Z"/><path class="scene-boundary" d="M170 145Q520-65 900 145M910 170Q1050 350 900 510M135 500Q410 605 760 540"/>']
     for a,b in edges:
         x1,y1=coords[a];x2,y2=coords[b];mid=(x1+x2)/2
         parts.append(f'<path class="scene-edge" data-from="{a}" data-to="{b}" d="M{x1} {y1}C{mid} {y1},{mid} {y2},{x2} {y2}"/>')
-    if hero:
-        parts.append('<circle cx="300" cy="222" r="45" fill="url(#core)"/><circle cx="300" cy="222" r="50" fill="none" stroke="#d3d6d8"/><text x="300" y="226" text-anchor="middle" fill="#ffffff" font-family="Arial,sans-serif" font-size="20" letter-spacing="2">OAS</text>')
     for i,((x,y),kind) in enumerate(zip(coords,kinds)):
-        lens = f'<ellipse cx="{x}" cy="{y+9}" rx="25" ry="19" fill="#747b80" opacity=".1"/><circle cx="{x}" cy="{y}" r="25" fill="url(#pearl)" stroke="#bcc1c4"/>' if hero else ''
-        parts.append(f'<g class="scene-object" data-object="{i}">{lens}{symbol(kind,x,y)}</g>')
+        parts.append(f'<g class="scene-object" data-object="{i}">{symbol(kind,x,y)}</g>')
+    return ''.join(parts)
+
+
+def balanced_hero_art():
+    """Keep nodes circular, the center light, and relationship lines in one JS layer."""
+    parts = ['''<defs>
+      <linearGradient id="node-surface" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#eff1f2"/></linearGradient>
+      <filter id="node-shadow" x="-50%" y="-50%" width="200%" height="220%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#252729" flood-opacity=".08"/></filter>
+    </defs>
+    <g class="hero-center">
+      <circle cx="300" cy="180" r="37" fill="#fafafa" stroke="#dadddf" stroke-width=".8"/>
+      <circle cx="300" cy="180" r="31" fill="#eceeef" stroke="#d0d5d8" stroke-width=".8"/>
+      <text x="300" y="185" text-anchor="middle" fill="#444b50" font-family="Arial,sans-serif" font-size="17" font-weight="500" letter-spacing="1.5">OAS</text>
+    </g>''']
+    for i, ((px,py),kind) in enumerate(zip(HERO_POSITIONS,['model','agent','tools','knowledge','sandbox','assets'])):
+        x,y=px*6,py*HERO_HEIGHT/100-HERO_NODE_OFFSET
+        parts.append(f'''<g class="scene-object" data-object="{i}"><g class="balanced-node">
+          <circle class="node-face" cx="{x}" cy="{y}" r="24" fill="url(#node-surface)" stroke="#c7cdd1" stroke-width="1" filter="url(#node-shadow)"/>
+          {symbol(kind,x,y)}
+        </g></g>''')
     return ''.join(parts)

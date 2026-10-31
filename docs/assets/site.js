@@ -93,22 +93,24 @@ if (ecoPanel) {
   const modes = [...ecoPanel.querySelectorAll('.eco-mode')];
   const toggle = ecoPanel.querySelector('.eco-toggle');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const positions=[[15,32],[48,32],[81,32],[22,76],[51,76],[81,76]];
+  const positions=nodes.map(node=>['--nx','--ny'].map(key=>parseFloat(node.style.getPropertyValue(key))));
+  const bounds=ecoPanel.querySelector('.iso-hero').viewBox.baseVal;
+  const nodeOffset=Number(ecoPanel.querySelector('.eco-stage').dataset.nodeOffset);
   const layouts=[positions,positions,positions];
-  let mode = 0, step = 0, playing = !motion.matches, visible = true, hover = null, timer;
+  let mode = 0, step = 0, playing = !motion.matches, visible = true, hover = null, focused = null, timer;
   let paths = [];
   function draw() {
     const coords = layouts[mode];
     nodes.forEach((node,i) => {node.style.setProperty('--nx',`${coords[i][0]}%`);node.style.setProperty('--ny',`${coords[i][1]}%`);});
     const order = data.modes[mode][3];
-    nodes.forEach((node,i)=>{node.style.order=order.indexOf(i);node.querySelector('.eco-number').textContent='0'+(mode===0?i+1:order.indexOf(i)+1);});
-    const edges = order.slice(0,-1).map((id,i)=>[id,order[i+1]]);
-    if (mode === 0) edges.push([order[5],order[0]],[0,4],[1,5]);
+    nodes.forEach((node,i)=>{node.style.order=mode===0?i:order.indexOf(i);node.querySelector('.eco-number').textContent='0'+(mode===0?i+1:order.indexOf(i)+1);});
+    const edges = mode===0 ? coords.map((_,i)=>[i,-1]) : order.slice(0,-1).map((id,i)=>[id,order[i+1]]);
     const group = ecoPanel.querySelector('.eco-links');
     group.replaceChildren();
     paths = edges.map(([from,to])=>{
       const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-      const x1=coords[from][0]*6,y1=coords[from][1]*4.4-22,x2=coords[to][0]*6,y2=coords[to][1]*4.4-22,m=(x1+x2)/2;
+      const x1=coords[from][0]*bounds.width/100,y1=coords[from][1]*bounds.height/100-nodeOffset;
+      const x2=to===-1?300:coords[to][0]*bounds.width/100,y2=to===-1?180:coords[to][1]*bounds.height/100-nodeOffset,m=(x1+x2)/2;
       path.setAttribute('d',`M${x1} ${y1} C${m} ${y1},${m} ${y2},${x2} ${y2}`);
       path.dataset.from=from; path.dataset.to=to;
       group.append(path);
@@ -122,7 +124,7 @@ if (ecoPanel) {
   }
   function render() {
     const id=data.modes[mode][3][step];
-    const highlighted=hover === null ? id : hover;
+    const highlighted=hover ?? focused ?? id;
     nodes.forEach((node,i)=>{node.setAttribute('aria-pressed',String(i===id));node.classList.toggle('eco-highlight',i===highlighted);});
     paths.forEach(path=>path.classList.toggle('active',Number(path.dataset.from)===highlighted || Number(path.dataset.to)===highlighted));
     ecoPanel.querySelectorAll('.scene-object').forEach(object=>object.classList.toggle('is-selected',Number(object.dataset.object)===highlighted));
@@ -131,17 +133,19 @@ if (ecoPanel) {
     detail.setAttribute('aria-live',playing?'off':'polite');
     detail.textContent=data.nodes[id][1];
     toggle.textContent=playing?data.pause:data.play;
-    ecoPanel.classList.toggle('eco-playing',playing&&visible&&!document.hidden&&hover===null);
+    ecoPanel.classList.toggle('eco-playing',playing&&visible&&!document.hidden&&hover===null&&focused===null);
   }
   function schedule() {
     clearInterval(timer);render();
-    if(playing&&visible&&!document.hidden&&hover===null) timer=setInterval(()=>{step=(step+1)%6;render();},4500);
+    if(playing&&visible&&!document.hidden&&hover===null&&focused===null) timer=setInterval(()=>{step=(step+1)%6;render();},4500);
   }
   modes.forEach((button,i)=>button.addEventListener('click',()=>{mode=i;step=0;hover=null;draw();schedule();}));
   nodes.forEach((node,i)=>{
     node.addEventListener('click',()=>{step=data.modes[mode][3].indexOf(i);playing=false;schedule();});
     node.addEventListener('pointerenter',()=>{hover=i;schedule();});
     node.addEventListener('pointerleave',()=>{hover=null;schedule();});
+    node.addEventListener('focus',()=>{focused=i;schedule();});
+    node.addEventListener('blur',()=>{focused=null;schedule();});
   });
   toggle.hidden=false;
   toggle.addEventListener('click',()=>{playing=!playing;schedule();});

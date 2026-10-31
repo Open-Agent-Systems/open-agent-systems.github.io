@@ -141,3 +141,28 @@ html{scroll-padding-top:104px}
 }
 @media(max-width:760px){.intro{padding-block:36px}}
 @media(prefers-reduced-motion:reduce){.header-nav a{transition:none}}
+
+/* Balanced ecosystem diagram. Keep the rest of the page and its palette unchanged. */
+.eco-panel .eco-stage,.eco-panel:not([data-view="0"]) .eco-stage{height:auto;min-height:0;aspect-ratio:5/3;margin-top:10px;margin-bottom:0;background:none}
+.eco-panel .iso-hero{z-index:1;pointer-events:none}
+.eco-panel .eco-wires{z-index:0}
+.eco-panel .scene-glyph{transform:translate(-12px,-12px)}
+.eco-panel .scene-symbol{stroke:var(--icon);stroke-width:1.6;filter:none}
+.eco-panel .scene-object.is-selected .node-face{stroke:var(--accent);stroke-width:1.2}
+.eco-panel .scene-object.is-selected .scene-symbol{stroke:var(--accent);filter:none}
+.eco-panel .eco-links path{stroke:#dadddf;stroke-width:1;opacity:.7;transition:stroke .25s,opacity .25s}
+.eco-panel .eco-links path.active{stroke:var(--accent);stroke-width:1.1;opacity:.8;stroke-dasharray:2 10;animation:flow-signal 5s linear infinite}
+.eco-panel .eco-node,.eco-panel:not([data-view="0"]) .eco-node{width:30%;min-height:44px;padding:4px 0;gap:5px;align-items:baseline;flex-direction:row;line-height:1.5}
+.eco-panel .eco-node strong{font-size:12px;font-weight:500;line-height:1.5;background:var(--paper);padding:0 3px}
+.eco-panel .eco-number{background:var(--paper);font-size:9px}
+.eco-panel .eco-node:before{height:52px;left:25%;right:25%}
+.eco-panel .eco-node:hover,.eco-panel .eco-node[aria-pressed=true]{border-color:transparent}
+.eco-panel .eco-node:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+@media(max-width:1200px){
+ .eco-panel .eco-stage,.eco-panel:not([data-view="0"]) .eco-stage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 8px;aspect-ratio:auto;padding-top:60%;margin-top:6px;margin-bottom:12px}
+ .eco-panel .iso-hero,.eco-panel .eco-wires{height:auto;aspect-ratio:5/3;bottom:auto}
+ .eco-panel .eco-node,.eco-panel:not([data-view="0"]) .eco-node,.eco-panel .eco-node:hover,.eco-panel .eco-node[aria-pressed=true]{position:static;transform:none;width:auto;min-height:58px;padding:6px 2px;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;border-bottom:1px solid var(--line)}
+ .eco-panel .eco-node[aria-pressed=true]{border-bottom-color:var(--accent)}
+ .eco-panel .eco-node:before{display:none}.eco-panel .eco-node strong{font-size:11px;padding:0}
+}
+@media(prefers-reduced-motion:reduce){.eco-panel .eco-links path{animation:none!important;transition:none}}
