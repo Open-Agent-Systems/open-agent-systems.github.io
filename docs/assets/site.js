@@ -93,7 +93,7 @@ if (ecoPanel) {
   const modes = [...ecoPanel.querySelectorAll('.eco-mode')];
   const toggle = ecoPanel.querySelector('.eco-toggle');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const positions=nodes.map(node=>['--nx','--ny'].map(key=>parseFloat(node.style.getPropertyValue(key))));
+  const positions=[[15,32],[48,32],[81,32],[22,76],[51,76],[81,76]];
   const layouts=[positions,positions,positions];
   let mode = 0, step = 0, playing = !motion.matches, visible = true, hover = null, timer;
   let paths = [];
@@ -101,7 +101,7 @@ if (ecoPanel) {
     const coords = layouts[mode];
     nodes.forEach((node,i) => {node.style.setProperty('--nx',`${coords[i][0]}%`);node.style.setProperty('--ny',`${coords[i][1]}%`);});
     const order = data.modes[mode][3];
-    nodes.forEach((node,i)=>{node.style.order=mode===0?i:order.indexOf(i);node.querySelector('.eco-number').textContent='0'+(mode===0?i+1:order.indexOf(i)+1);});
+    nodes.forEach((node,i)=>{node.style.order=order.indexOf(i);node.querySelector('.eco-number').textContent='0'+(mode===0?i+1:order.indexOf(i)+1);});
     const edges = order.slice(0,-1).map((id,i)=>[id,order[i+1]]);
     if (mode === 0) edges.push([order[5],order[0]],[0,4],[1,5]);
     const group = ecoPanel.querySelector('.eco-links');
@@ -142,8 +142,6 @@ if (ecoPanel) {
     node.addEventListener('click',()=>{step=data.modes[mode][3].indexOf(i);playing=false;schedule();});
     node.addEventListener('pointerenter',()=>{hover=i;schedule();});
     node.addEventListener('pointerleave',()=>{hover=null;schedule();});
-    node.addEventListener('focus',()=>{hover=i;schedule();});
-    node.addEventListener('blur',()=>{hover=null;schedule();});
   });
   toggle.hidden=false;
   toggle.addEventListener('click',()=>{playing=!playing;schedule();});

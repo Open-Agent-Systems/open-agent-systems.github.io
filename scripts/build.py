@@ -35,7 +35,7 @@ for d in items:
     eco_data = esc(json.dumps(eco,ensure_ascii=False))
     fallback = ''.join(f'<p>{esc(n[0])}: {esc(n[1])}</p>' for n in eco['nodes'])
     hero_decks = scene_art(hero=True)
-    ecosystem = f'''<div class="ecosystem eco-panel" data-eco="{eco_data}"><div class="ecosystem-heading"><span>{esc(eco['title'])}</span><span class="diagram-code">OAS / OPEN SYSTEMS</span></div><div class="eco-modes" aria-label="{esc(eco['title'])}">{mode_buttons}</div><h2 class="scene-title">{esc(eco["sceneTitles"][0])}</h2><p class="eco-apps">{esc(eco['apps'])}</p><div id="eco-stage" class="eco-stage"><svg class="iso-hero" viewBox="0 0 600 440" preserveAspectRatio="xMidYMid meet" aria-hidden="true">{hero_decks}</svg><svg class="eco-wires" viewBox="0 0 600 440" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g class="eco-links"></g></svg><div class="eco-core"><strong>OAS</strong><span>{esc(eco['modes'][0][1])}</span><small class="eco-progress">01 / 06</small></div>{eco_nodes}</div><div class="iso-level-key">{''.join(f'<span>0{i+1} / {esc(label)}</span>' for i,label in enumerate(d['iso']['heroLayers']))}</div><div class="eco-governance"><strong>{esc(eco['governance'])}</strong><span>{esc(eco['guards'])}</span></div><p id="eco-summary">{esc(eco['modes'][0][2])}</p><div class="eco-toolbar"><span>{esc(eco['note'])}</span><button class="eco-toggle" type="button" hidden>{esc(eco['play'])}</button></div><p id="eco-detail">{esc(eco['nodes'][0][1])}</p><noscript>{fallback}</noscript></div>'''
+    ecosystem = f'''<div class="ecosystem eco-panel" data-eco="{eco_data}"><div class="ecosystem-heading"><span>{esc(eco['title'])}</span><span class="diagram-code">OAS / OPEN SYSTEMS</span></div><div class="eco-modes" aria-label="{esc(eco['title'])}">{mode_buttons}</div><h2 class="scene-title">{esc(eco["sceneTitles"][0])}</h2><p class="eco-apps">{esc(eco['apps'])}</p><div id="eco-stage" class="eco-stage"><svg class="iso-hero" viewBox="0 0 600 440" preserveAspectRatio="none" aria-hidden="true">{hero_decks}</svg><svg class="eco-wires" viewBox="0 0 600 440" preserveAspectRatio="none" aria-hidden="true"><g class="eco-links"></g></svg><div class="eco-core"><strong>OAS</strong><span>{esc(eco['modes'][0][1])}</span><small class="eco-progress">01 / 06</small></div>{eco_nodes}</div><div class="iso-level-key">{''.join(f'<span>0{i+1} / {esc(label)}</span>' for i,label in enumerate(d['iso']['heroLayers']))}</div><div class="eco-governance"><strong>{esc(eco['governance'])}</strong><span>{esc(eco['guards'])}</span></div><p id="eco-summary">{esc(eco['modes'][0][2])}</p><div class="eco-toolbar"><span>{esc(eco['note'])}</span><button class="eco-toggle" type="button" hidden>{esc(eco['play'])}</button></div><p id="eco-detail">{esc(eco['nodes'][0][1])}</p><noscript>{fallback}</noscript></div>'''
 
     labels = d['explorerLabels']
     insights = []
@@ -65,7 +65,7 @@ for d in items:
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(d['title'])}</title><meta name="description" content="{esc(d['description'])}">
-<meta name="theme-color" content="#080f20"><link rel="canonical" href="{BASE}{d['path']}">
+<meta name="theme-color" content="#fafafa"><link rel="canonical" href="{BASE}{d['path']}">
 {links}<link rel="alternate" hreflang="x-default" href="{BASE}/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Open Agent Systems">
 <meta property="og:title" content="{esc(d['title'])}"><meta property="og:description" content="{esc(d['description'])}">
